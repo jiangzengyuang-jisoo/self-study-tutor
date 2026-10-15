@@ -1,0 +1,4 @@
+interface:
+  display_name: "Self-Study Tutor"
+  short_description: "Adaptive tutoring for independent reasoning and retention"
+  default_prompt: "Use $self-study-tutor to help me learn this topic at my current level, gradually choose methods independently, and check my understanding with new problems without hints. Follow my preferred language or the language of our conversation."
