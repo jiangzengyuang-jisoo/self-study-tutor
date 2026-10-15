@@ -16,6 +16,22 @@ Self-Study Tutor 是一个可复用的 AI 教学技能，用于概念学习、�
 
 **语言不限。** 教学跟随你指定的语言或当前对话语言。技能规则文件目前使用中文，界面元数据使用英文，这不限制实际回复语言。
 
+### 核心优势
+
+**把“为什么想到这个方法”纳入教学，让练习逐步走向撤去提示后的独立作答。** 以下是项目的主要设计及其面向学习者的价值：
+
+| 优势 | 具体设计 | 对学习者的价值 |
+| --- | --- | --- |
+| 学会选方法 | 连接题目线索、适用条件和选择理由，比较合理解法，并讨论方法的失效边界。 | 练习看到新题时如何起步，而不只是照着已指定的方法计算。 |
+| 帮助随能力逐步减少 | 基础不足时先解释和示范；卡住时按需提供方向、线索、局部步骤或完整解答，再将思考交还给学习者。 | 初学者有足够的起点，也有机会在支持减少后检验自己的能力。 |
+| 掌握判断有依据 | 分开记录提示下完成、无提示完成、延迟保持与迁移表现；用新题验证，不把“听懂了”或同题重做正确当成掌握。 | 更清楚哪些已经能独立完成，哪些仍依赖帮助，哪些尚未验证。 |
+| 训练解释、迁移与保持 | 结合闭卷讲解、反例、条件变化题、无方法标签的混合题和延迟复测。 | 检查知识能否经得起换问法、换情境与时间间隔，为后续复习提供依据。 |
+| 反馈指出具体卡点 | 优先定位最早的实质错误，保留正确步骤，区分概念、审题、方法选择、推理、计算和表达问题。 | 知道下一步该补概念、练选法还是修正执行，避免把所有错误都归结为“不会”。 |
+| 节奏灵活，学习者保有选择权 | 根据表现调整深度，熟练内容快速推进；允许随时要求直接答案、完整讲解、切换模式或停止。 | 把时间用在当前最需要的环节，不必每次完成整套教学流程。 |
+| 轻量、通用、可复用 | 以技能文件提供教学流程，无需额外运行时；不绑定学科或教学语言，可按支持平台的方式安装并匹配学习请求。 | 同一套学习原则可用于不同主题与项目，减少重复粘贴长提示词的负担。 |
+
+这些优势描述的是技能的教学设计与使用价值，不代表已经证明能提高分数；实际效果应通过撤去帮助后的独立表现和延迟复测来评估。
+
 ### 安装
 
 以下步骤以支持本地技能的 Codex 环境为例。其他支持 Agent Skills 的工具，请使用其自己的安装器或技能目录。教学流程本身无需 Python、Node.js 或额外依赖。
@@ -129,6 +145,22 @@ Self-Study Tutor is a reusable AI tutoring skill for concept learning, guided pr
 It explains and demonstrates when prerequisites are missing, then gradually reduces assistance. It distinguishes understanding an explanation, completing a task with help, solving it independently, retaining it over time, and transferring it to a new situation. You can request a direct answer, a full explanation, a mode change, or an end to the session at any time.
 
 **There is no fixed teaching language.** The tutor follows your preferred language or the language of the conversation. The instruction files are currently in Chinese and the interface metadata is in English; neither determines the language of tutoring responses.
+
+### Why use it
+
+**Practice why a method comes to mind, then work toward solving problems without hints.** The skill connects each teaching choice to a practical learner need:
+
+| Advantage | How it works | Value for the learner |
+| --- | --- | --- |
+| Learn to choose a method | Connects problem clues to applicable conditions and selection reasons, compares valid approaches, and discusses where a method stops working. | Practices how to start an unfamiliar problem, beyond executing a method already named by the tutor. |
+| Support gradually fades | Explains and demonstrates when foundations are missing; offers direction, clues, partial steps, or a full solution as needed, then returns the thinking to the learner. | Gives beginners a usable starting point and opportunities to check their ability as assistance is reduced. |
+| Mastery claims require evidence | Separates assisted completion, independent performance, retention, and transfer; checks new problems instead of treating “I understand” or a repeated answer as mastery. | Makes it clearer what you can do alone, what still depends on help, and what has not been assessed. |
+| Practice explanation, transfer, and retention | Combines closed-book explanations, counterexamples, changed conditions, mixed problems without method labels, and delayed checks. | Tests whether knowledge survives new wording, new situations, and time away, informing what to review next. |
+| Feedback identifies the obstacle | Locates the first substantive error, preserves correct work, and distinguishes conceptual, reading, method-selection, reasoning, calculation, and expression issues. | Clarifies whether to revisit a concept, practice choosing an approach, or fix execution. |
+| Flexible pacing and learner control | Adjusts depth to performance, moves quickly through familiar content, and accepts requests for direct answers, full explanations, mode changes, or stopping. | Focuses time on the current need without requiring a full teaching checklist every session. |
+| Lightweight and reusable | Delivers the workflow as skill files without extra runtimes; does not bind teaching to one subject or language, and supports installation and learning-request matching through compatible hosts. | Reuses the same learning principles across topics and projects with less repeated prompt setup. |
+
+These advantages describe the skill’s design and intended value, not a demonstrated improvement in grades. Evaluate its usefulness through independent performance after help is removed and through delayed checks.
 
 ### Installation
 
