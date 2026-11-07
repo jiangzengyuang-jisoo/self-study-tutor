@@ -94,7 +94,7 @@ self-study-tutor/
 本仓库没有设置 `allow_implicit_invocation: false`，沿用允许自动调用的默认值 `true`，因此无需额外打开该开关。[调用设置](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
 
 - **适合自动选用：** 学习概念、引导练习、解释自己的理解、测试掌握程度、复习和迁移训练。
-- **不会刻意强制教学：** 单纯查事实、索取答案、制作讲义或代办任务；明确要求其他技能时也不叠加本技能。
+- **不会刻意强制教学：** 单纯查事实、索取答案、制作讲义或代办任务不自动触发教学。用户明确选择另一套教学流程时，优先采用该流程，不重复叠加本技能的教学流程；读取文件、计算、绘图等辅助技能可以按需配合使用。是否采用本技能，仍取决于当前请求是否包含学习需求。
 - **自动匹配并非每次必定触发。** 它依赖技能是否被发现、是否启用及对请求的理解；这也不是后台运行或自动提醒功能。
 
 如果没有触发，先确认技能列表中能找到 `self-study-tutor`，或让助手检查是否可用；安装后仍未出现时重启 Codex。需要明确指定时，在对话中输入：
@@ -224,7 +224,7 @@ Once the skill is installed and discovered, make an ordinary learning request, s
 This repository does not set `allow_implicit_invocation: false`, so it retains the default `true`. No additional switch is required to allow automatic selection. [Invocation policy](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
 
 - **Intended matches:** Learning concepts, guided practice, explaining your understanding, checking mastery, review, and transfer practice.
-- **No forced tutoring:** Simple factual lookups, requests for answers, study-material creation, or delegated tasks. An explicitly requested different skill takes precedence.
+- **No forced tutoring:** Simple factual lookups, requests for answers, study-material creation, or delegated tasks. When the user explicitly chooses another teaching workflow, follow it without layering this skill’s teaching workflow on top. Supporting skills for file reading, calculation, or visualization may be combined as needed; use this tutoring skill only when the current request includes a learning goal.
 - **Automatic selection is not guaranteed on every request.** It depends on discovery, enablement, and task interpretation. It does not mean background execution or automatic reminders.
 
 If it does not activate, check whether `self-study-tutor` appears in the available skills, or ask the assistant to check availability. Restart Codex if a new installation does not appear. To select it explicitly, send:
