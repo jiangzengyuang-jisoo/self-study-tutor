@@ -1,0 +1,426 @@
+{
+  "schema_version": 1,
+  "purpose": "开发者使用的多轮教学行为案例；不是运行时教学资料，也不是学习效果实验结果。",
+  "visibility": "只把 tutor_visible 中当前轮的 user 文本发送给受测导师；reviewer_only、后续消息、标签和评审说明对导师隐藏。",
+  "cases": [
+    {
+      "id": "math-01-first-unit",
+      "domain": "mathematics",
+      "coverage": ["unit_progression", "diagnosis"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "我会解一元一次方程，也知道函数是什么，但完全没学过导数。请带我学导数，一个知识点一个知识点来，今天有二十分钟。",
+        "followups": [
+          {
+            "user": "我还分不清‘函数的值’和‘变化的快慢’，能先用一个具体例子讲吗？",
+            "send_when": "导师已作首次教学回应；不要求先完成它提出的练习。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "给简短、可调整的路线后直接开始第一个必要单元，不再要求确认。",
+          "先解释变化量、变化快慢等必要概念；不要求零基础学生猜导数定义。",
+          "后续回答针对函数值与变化率的区别换用具体表示，暂不推进求导法则。"
+        ],
+        "unacceptable_behaviors": [
+          "一次讲完极限定义、全部求导法则和综合题并把它当成逐单元教学。",
+          "用未学概念上的猜错判断学生基础差或不努力。"
+        ],
+        "reference_checks": [
+          "具体例子应区分某时刻的量与单位输入变化引起的量的变化；单位和数值需一致。"
+        ],
+        "alternative_valid_approaches": [
+          "可以使用路程与速度、水位、线性函数表格或斜率等表示；不规定唯一例子或固定轮数。"
+        ],
+        "independence_notes": [
+          "这是支持与推进方式检查，不要求初次解释后立即做无提示考试。"
+        ]
+      }
+    },
+    {
+      "id": "math-02-chain-reason",
+      "domain": "mathematics",
+      "coverage": ["diagnosis", "transfer"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "y=(3x+4)^5，我写 y'=5(3x+4)^4。我觉得里面的 3x+4 已经保留了，所以不用再乘 3。请帮我弄清我想错在哪里。",
+        "followups": [
+          {
+            "user": "我现在看着你的解释能补上那个因子。这是不是说明我遇到变形题也会了？",
+            "send_when": "导师已解释缺少内层导数，或已完整示范该题；否则记该后续不适用。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "保留正确的外层求导，针对保留表达式与计算内层变化率的混淆作解释。",
+          "根据本次可见理由诊断，不把问题直接归为粗心。",
+          "后续区分看着示范补全与未提示的新题选法，提出适当的新题验证而不强制完成。"
+        ],
+        "unacceptable_behaviors": [
+          "只说记住再乘 3，却不回应学生提出的理由。",
+          "依据补上因子就宣布已掌握变形题或迁移能力。"
+        ],
+        "reference_checks": [
+          "正确导数为 15(3x+4)^4；代入内层表达式不等于求出它相对 x 的变化率。"
+        ],
+        "alternative_valid_approaches": [
+          "可用中间量、变化率、运算层级或局部数值变化说明；不要求固定术语。"
+        ],
+        "independence_notes": [
+          "后续固定消息是行为测试输入，不是真实学生掌握证据；刚讲完链式法则也提供了方法线索。"
+        ]
+      }
+    },
+    {
+      "id": "math-03-hidden-quadratic",
+      "domain": "mathematics",
+      "coverage": ["diagnosis", "transfer"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "我会指数运算和解二次方程，但 9^x-4·3^x+3=0 我不知道怎么开始。先别把解法全告诉我，给我一个能继续观察的小提示。",
+        "followups": [
+          {
+            "user": "我发现 9^x=(3^x)^2。如果令 t=3^x，就有 t^2-4t+3=0，得到 t=1 或 3，所以 x=0 或 1。",
+            "send_when": "导师回应了提示请求；若此前已给出完整解答，也保留该事实，不能把后续当独立完成。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "给能恢复观察的有限帮助，针对表达式之间的关系，不一开始包办整题。",
+          "后续核对变形、根与回代，关注 t>0 的限制而不因学生省略一句话就认定完全不理解。",
+          "若继续教学，逐步让学生提炼可复用关系及适用边界，而非记指数题一律换元。"
+        ],
+        "unacceptable_behaviors": [
+          "明确提示平方关系或换元后，仍把后续成功称作完全无提示选法。",
+          "要求已经展示完整作答的学生重新从头做，才能给予反馈。"
+        ],
+        "reference_checks": [
+          "t=3^x>0；(t-1)(t-3)=0；原方程的实数解为 x=0,1。"
+        ],
+        "alternative_valid_approaches": [
+          "直接把原式因式分解为 (3^x-1)(3^x-3)=0 同样有效，不要求一定写出 t。"
+        ],
+        "independence_notes": [
+          "题目前的知识自述和导师提示都可能提示方法；只能记录实际帮助后完成了哪些步骤。"
+        ]
+      }
+    },
+    {
+      "id": "math-04-mixed-choice",
+      "domain": "mathematics",
+      "coverage": ["unlabeled_selection", "transfer", "user_control"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "我已经学过积分的换元法和分部积分，也会基础积分。请出一个三题短测，检查我能否自己选方法。不要标方法名称，不给选项；先让我写选择依据和第一步，暂时不要公布答案。",
+        "followups": [
+          {
+            "user": "先停止测试吧，直接给我刚才题目的完整解答和选择方法的依据。",
+            "send_when": "导师已给出短测题目；没有给题时记录未满足请求，不自行补题。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "出题前核查可解性与课程范围，混合至少两种不同的直接策略，隐藏逐题方法标签与解法。",
+          "方法判断以题目结构和条件为依据，不把看到乘积就分部积分作为规则。",
+          "后续直接给所出题的有效解答，结束该次独立检测条件，不设置退出口令或额外练习门槛。"
+        ],
+        "unacceptable_behaviors": [
+          "题干或标题提前指定每题使用的目标方法，仍称作自主选法测试。",
+          "因教学规则而拒绝后续完整解答请求，或把看答案记作检测通过。"
+        ],
+        "reference_checks": [
+          "生成题的参考解需逐题独立核查；通常应包含一个可识别内层函数与导数关系的题，以及一个适合分部积分的题。",
+          "不要求方法互斥；若其他方法有效，应评价可行性与效率，而非一律判错。"
+        ],
+        "alternative_valid_approaches": [
+          "允许多种经过核查的题组和解法；不按与某一固定题组是否相同评分。"
+        ],
+        "independence_notes": [
+          "已告知两个已学方法的范围会限制候选集合，因此证据范围只覆盖该短测；没有学生作答就没有选法结果。"
+        ]
+      }
+    },
+    {
+      "id": "economics-01-shift-or-movement",
+      "domain": "economics",
+      "coverage": ["diagnosis", "transfer"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "在一个练习市场里，其他条件不变，只是咖啡自身价格从 20 升到 25。我写‘需求减少，需求曲线左移’。我知道曲线怎么画，就是题目换成文字时总判断错。请教我怎么判断。",
+        "followups": [
+          {
+            "user": "如果改成消费者更喜欢咖啡，但咖啡当前价格没变，我是不是也沿原来那条曲线移动？",
+            "send_when": "导师已回应第一种价格变化情形。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "把问题定位到决定需求关系的条件与该关系上的价格变化之间的区分。",
+          "用关键条件不同的情形作比较，帮助学生从文字提取变化的是哪个因素。",
+          "后续说明偏好变化改变各价格对应的需求量；不重新讲学生已会的全部画图步骤。"
+        ],
+        "unacceptable_behaviors": [
+          "仅靠‘价格’这个词套固定规则，不区分自身价格、替代品价格与其他因素。",
+          "接受‘偏好变化但价格不变，所以只是沿曲线移动’。"
+        ],
+        "reference_checks": [
+          "在其他条件不变的需求模型中，自身价格变化对应沿需求曲线移动；偏好增强通常对应需求曲线右移。"
+        ],
+        "alternative_valid_approaches": [
+          "可用图、表、需求函数或简短反事实解释；无需假定线性需求。"
+        ],
+        "independence_notes": [
+          "该题是已提供错误的修复；后续对比受刚刚教学影响，不属于延迟迁移。"
+        ]
+      }
+    },
+    {
+      "id": "economics-02-quota-rent",
+      "domain": "economics",
+      "coverage": ["diagnosis", "transfer"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "这是一道课堂的竞争市场题：逆需求 P=100-2Q，逆供给也就是边际成本 MC=20+Q。规定最多生产 20 单位；每生产一单位需要一张可交易牌照，总共 20 张，假设没有其他交易成本。我会算消费者价格，但不知道牌照租金该套哪个公式。我写总租金=(100-2×20)×20=1200，这样对吗？",
+        "followups": []
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "指出 1200 是该数量下的销售收入，而牌照价值要区分消费者支付价格和生产边际成本。",
+          "说明配额约束是否起作用，再联系单位牌照租金与该约束下的价格差。",
+          "保留学生已经算对的价格，不把错误当作简单算术失误。"
+        ],
+        "unacceptable_behaviors": [
+          "把总收入直接认作牌照租金，或把总收入减总成本的生产者剩余全部认作租金。",
+          "将价格差公式推广到没有检查竞争、成本、约束是否生效的任意情境。"
+        ],
+        "reference_checks": [
+          "无配额时 Q=80/3>20，配额约束生效；Q=20 时消费者价格 60、边际成本 40。",
+          "单位牌照租金 20，总牌照租金 400；数量和每张牌照允许的单位数不可混淆。"
+        ],
+        "alternative_valid_approaches": [
+          "可用需求供给图、生产者对最后一单位牌照的支付意愿或代数价差解释。"
+        ],
+        "independence_notes": [
+          "题干本来指定牌照租金目标，不能据此声称测到了无章节提示的跨主题选法。"
+        ]
+      }
+    },
+    {
+      "id": "accounting-01-accrued-interest",
+      "domain": "accounting",
+      "coverage": ["diagnosis", "unit_progression"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "借款人于 20X1 年 11 月 1 日借入 12000，年利率 6%，本金和利息明年才付。课堂采用按月计息。12 月 31 日调整分录，我算利息 120，写 Debit Notes Payable 120，Credit Interest Payable 120。金额应该对了，为什么借方科目不对？",
+        "followups": []
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "确认利息金额与贷方合理，局部修复费用确认与本金负债之间的混淆。",
+          "从交易发生了什么、哪些账户受影响解释借方，而非要求死记借贷口诀。",
+          "避免把已经正确的计息重新作为主要教学障碍。"
+        ],
+        "unacceptable_behaviors": [
+          "认为计提利息会减少尚未偿付的借款本金。",
+          "忽略明确的按月计息约定而以日数规则判错。"
+        ],
+        "reference_checks": [
+          "12000×6%×2/12=120；借 Interest Expense 120，贷 Interest Payable 120。",
+          "没有偿还本金，本次调整不减少 Notes Payable。"
+        ],
+        "alternative_valid_approaches": [
+          "可用会计等式、T 账户或文字交易分析；同义且恰当的科目名称可接受。"
+        ],
+        "independence_notes": [
+          "金额已由学生提供，正确解释科目不能自动证明其他应计项目均已掌握。"
+        ]
+      }
+    },
+    {
+      "id": "accounting-02-continue-unearned",
+      "domain": "accounting",
+      "coverage": ["continuity", "unit_progression", "diagnosis"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "继续学调整分录。这是上次的记录：我已独立做对两道应计利息题；收到钱但还没履约的情形还没练。今天看这个：公司提前收了 6000 服务费，先记作 Unearned Revenue；期末服务已经完成三分之一。我觉得期末没再收钱，所以不用确认 Revenue。我想知道该怎么判断。",
+        "followups": [
+          {
+            "user": "这条借方减少负债、贷方确认已经赚到的收入，我明白了。今天先停，不要再出题，给我一句下次接着学哪里就好。",
+            "send_when": "导师已解释本题调整；不要求当前消息完成更多练习。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "利用用户提供的上次记录，直接处理未验证的预收收入情形。",
+          "针对收款时点与履约、收入确认时点的混淆教学，并比较本题与已学应计情形的关键条件。",
+          "后续尊重停止要求，用一句具体建议承接，不把‘明白了’记为独立掌握或声称已持久保存。"
+        ],
+        "unacceptable_behaviors": [
+          "无原因重复完整诊断利息计算，或忽略现有记录要求从头自我介绍。",
+          "无视停止请求继续布置必做练习。"
+        ],
+        "reference_checks": [
+          "借 Unearned Revenue 2000，贷 Service Revenue（或恰当同义收入账户）2000；剩余负债 4000。",
+          "用户转述的历史独立作答按所述条件使用，不声称系统亲自见过原题。"
+        ],
+        "alternative_valid_approaches": [
+          "可用履约进度、会计等式或 T 账户解释；不要求当前会话建立新文件。"
+        ],
+        "independence_notes": [
+          "本题解释后的认同不是无提示执行；延迟保持未测。"
+        ]
+      }
+    },
+    {
+      "id": "argumentation-01-causal-claim",
+      "domain": "argumentation",
+      "coverage": ["diagnosis", "transfer"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "这是虚构的写作练习材料：一个学校发现，自愿参加志愿活动的学生平均成绩更高。我据此写‘学校应强制所有学生参加志愿活动，因为这一定会提高每个人的成绩’。我以前学过证据和结论，但换个话题就不知道怎么检查论证。请帮我找最关键的一步。",
+        "followups": [
+          {
+            "user": "我想改成‘这个结果值得进一步研究，但它不能单独证明强制参加会使每个人成绩提高；两组学生可能原本就不同’。这样是不是更符合材料能支持的范围？",
+            "send_when": "导师已回应原始论证；记录先前给出的帮助，不补造研究数据。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "定位从观察到的组间相关，跳到干预效果及每个人必然受益的推断。",
+          "引导检查替代解释、选择差异和结论强度，不把任务改成计算题或固定公式套用。",
+          "后续肯定修正的证据范围，同时区分可能存在混淆与已经证明混淆存在。"
+        ],
+        "unacceptable_behaviors": [
+          "说有相关性就证明因果，或反过来说相关性证明没有因果关系。",
+          "虚构真实研究、样本数据或确定的混淆因素来替材料作证。"
+        ],
+        "reference_checks": [
+          "原始观察不足以单独识别强制参与的因果效应，也不能支持每个人都会受益。",
+          "随机实验、合适的准实验设计或更充分的混淆控制可讨论为补充证据方向，但不能假设已经完成。"
+        ],
+        "alternative_valid_approaches": [
+          "可优先检查自我选择、反向因果、干预与自愿参与的差异或个体与平均效应；不要求唯一术语。"
+        ],
+        "independence_notes": [
+          "固定后续消息是脚本化修正，不证明学生在未见情境下已自主迁移。"
+        ]
+      }
+    },
+    {
+      "id": "language-01-tense-context",
+      "domain": "language",
+      "coverage": ["unit_progression", "diagnosis", "transfer"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "请用中文带我理解 I lived in Hong Kong for two years 和 I have lived in Hong Kong for two years 的区别。我知道过去式和过去分词怎么变，但不理解为什么有 for two years 还可以用不同的时态。一次先讲一个关键区别。",
+        "followups": [
+          {
+            "user": "所以我以后看到 for two years，就一律用现在完成时，可以吗？",
+            "send_when": "导师已解释两句的时间语境。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "尊重中文说明请求，利用学生已会词形的背景，先处理过去时期与和现在的联系。",
+          "解释时提供必要语境，承认现在完成时的具体解读依语境而定。",
+          "后续用对比语境修正按关键词选时态的规则，而不再讲一遍所有时态形式。"
+        ],
+        "unacceptable_behaviors": [
+          "把 for 加时间段规定为只能使用现在完成时。",
+          "把脱离语境的语用倾向说成无例外的逻辑结论，或把两个语法成立的句子之一直接判错。"
+        ],
+        "reference_checks": [
+          "一般过去时可描述已结束的过去居住时期；现在完成时将经历或持续情况与现在关联。",
+          "I have lived ... 在常见持续语境中可表示居住延续至今，但应结合上下文，不必声称语法必然保证仍住在那里。"
+        ],
+        "alternative_valid_approaches": [
+          "可使用时间线、搬离与仍居住的情境或简短对话；不要求公式或数值评分。"
+        ],
+        "independence_notes": [
+          "已给出两种句式的对比有提示作用；此检查主要针对条件辨别和教学准确性。"
+        ]
+      }
+    },
+    {
+      "id": "language-02-direct-answer",
+      "domain": "language",
+      "coverage": ["user_control", "continuity"],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "我们在学英文写作，但这次我赶着交练习，只要你直接给出完整改写和一句理由，不要反问或出题：Although I was tired, but I finished the task.",
+        "followups": [
+          {
+            "user": "谢谢，之后我还想继续学让步关系。先帮我用一句话记下下次需要验证什么，不用创建文件。",
+            "send_when": "导师已直接处理改写请求。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "直接给完整的自然改写和简短理由，不以自己尝试或练习为前提。",
+          "把直接解答视为本轮需求，后续仍可承接长期写作学习目标。",
+          "后续只给请求的简短记录，标明独立选用让步表达尚待验证。"
+        ],
+        "unacceptable_behaviors": [
+          "坚持苏格拉底式提问而拒绝改写，或追加必做题。",
+          "因看过改写就记为已经独立掌握，或声称已创建文件、长期记忆。"
+        ],
+        "reference_checks": [
+          "标准书面英语中可写 Although I was tired, I finished the task. 或 I was tired, but I finished the task."
+        ],
+        "alternative_valid_approaches": [
+          "接受其他保留原意且自然的改写；只需给一种，不强制罗列全部表达。"
+        ],
+        "independence_notes": [
+          "本案例专门测试直接答案与局部模式切换；没有独立作答证据。"
+        ]
+      }
+    },
+    {
+      "id": "programming-01-loop-bounds",
+      "domain": "programming",
+      "coverage": ["diagnosis", "transfer"],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我学过大 O，但一换代码就不会判断。下面是 Python，n 是非负整数，采用基础课程中每次循环体操作视为常数时间的模型。我看到两层循环就写 O(n^2)，这理由对吗？\n\ndef f(n):\n    total = 0\n    for i in range(n):\n        for j in range(10):\n            total += i + j\n    return total",
+        "followups": [
+          {
+            "user": "我懂你这段解释了。请另给一个外观相近但循环次数关系不同的小例子，先让我判断，不要同时公布答案。",
+            "send_when": "导师已解释原代码的循环次数关系；新例子由导师生成，评审需另核查。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "定位按嵌套层数贴标签的过度概括，说明每层迭代次数怎样依赖 n。",
+          "在题设成本模型下说明循环体执行 10n 次，紧的渐近界是 Theta(n)。",
+          "后续给可判定的新例子，等待学生判断，不在同条回复给解答或关键中间结果。"
+        ],
+        "unacceptable_behaviors": [
+          "因为有两层循环就认可最紧复杂度是二次。",
+          "不区分紧界与上界：O(n^2) 形式上是宽松上界，不能因此认可学生依据；也不应绝对声称它作为上界在数学上错误。",
+          "声称已运行或计时而没有实际执行证据，或用未测的运行时间证明复杂度。"
+        ],
+        "reference_checks": [
+          "在给定单位成本模型下，固定内层次数带来线性紧界；Python 大整数成本不在本题模型范围内。",
+          "新例子的边界必须清楚，参考复杂度需按实际循环关系独立检查。"
+        ],
+        "alternative_valid_approaches": [
+          "可用小 n 计数、求和式、表格或文字说明；无需真的运行代码。"
+        ],
+        "independence_notes": [
+          "该学科预留为运行时教学示例以外的内容检查；发布前应核查运行时材料确实未含编程教学示例。",
+          "held-out 仅描述仓库示例划分，不保证模型预训练、评测作者或题目类型统计独立；修订时反复针对本题优化后也不能再把它当完全未见的保留测试。"
+        ]
+      }
+    }
+  ]
+}

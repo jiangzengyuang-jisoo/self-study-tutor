@@ -1,0 +1,23 @@
+{
+  "original": {
+    "SKILL.md": "4f7d2383629f238ba8eda496eef67fbf1dc3c44d38391db6d6d30b2591e4b9b8",
+    "agents/openai.yaml": "e31f65dc1807770810ef67df78b129f18035aee7284970724ab58439c19b6ce7",
+    "references/assessment-and-review.md": "620656dc0d15eb165b77552206337d27d96b9ec52447fd7d7a1e9c4d338e5bb8"
+  },
+  "revised": {
+    "SKILL.md": "ae1a0d7b90e696d1821278fc314e2b443c66b881516c409ef50982dde67729b0",
+    "agents/openai.yaml": "29f146d7e780b1be8c571e322838cc308907dbf54e77058d5d002ee360ea1996",
+    "references/teaching-examples.md": "93881afe4ef1152bc8219a6a2617da46895edbb717cd7e7cb1ad80376d6262fc",
+    "references/teaching-flow.md": "ced607a5f857f6186ba43840a1c366b6d291c9e7a1ba137329a95463bc8d6cde",
+    "references/assessment-and-review.md": "0a976df858db779d432e4211bcd5255d51bbe84522816e2576712368372c3172",
+    "references/method-selection.md": "229ad2d2e93d3a4e7f32b9d954b44ca64eb0fa1d97e41ae7a97d35cec5d4abdf"
+  },
+  "revised-final": {
+    "SKILL.md": "ae1a0d7b90e696d1821278fc314e2b443c66b881516c409ef50982dde67729b0",
+    "agents/openai.yaml": "29f146d7e780b1be8c571e322838cc308907dbf54e77058d5d002ee360ea1996",
+    "references/teaching-examples.md": "f42d05008c696f318954911aa9ec63a68a4e81c3f137ac6bde23c7bf0c1fb3d1",
+    "references/teaching-flow.md": "ced607a5f857f6186ba43840a1c366b6d291c9e7a1ba137329a95463bc8d6cde",
+    "references/assessment-and-review.md": "0a976df858db779d432e4211bcd5255d51bbe84522816e2576712368372c3172",
+    "references/method-selection.md": "229ad2d2e93d3a4e7f32b9d954b44ca64eb0fa1d97e41ae7a97d35cec5d4abdf"
+  }
+}
