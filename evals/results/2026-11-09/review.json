@@ -1,0 +1,258 @@
+{
+  "reviews": [
+    {
+      "id": "R01",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "准确保留“消费者价格60算对了”，将1200定位为销售收入，并先核查80/3>20再用“P=MC+r”求单位租金20、总租金400。解释直接修复价格与租金的混淆；没有实际掌握判断，evidence_claim不适用。",
+      "run_id": "rent_d"
+    },
+    {
+      "id": "R02",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "把“期末没有再收钱”与“收入按服务是否已经完成来确认”分开，分录借Unearned Revenue 2000、贷Service Revenue 2000正确。沿用用户提供的历史记录，没有声称亲见原题；停止后仅用一句“下次从预收收入的独立练习接着学”承接，未把“明白了”当作独立掌握。",
+      "run_id": "continue_d"
+    },
+    {
+      "id": "R03",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "保留正确外层求导，明确区分“保留里面的值”和“考虑里面的变化速度”，导数15(3x+4)^4正确。后续把当前证据限定为“借助解释修正原题”，提供可用的新题，并说明近期提示及延迟检查的限制；尚无新题作答结果。",
+      "run_id": "chain_d"
+    },
+    {
+      "id": "R04",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "用“本来就更自律”作为可能解释，准确指出观察不足以支持强制参加后每个人必然提高。肯定学生保留“可能”而未将混淆当事实，把修正限定为“根据刚才的示范修正原题”；新情境有可选跳过，不能据未作答新题报告自主迁移。",
+      "run_id": "argument_b"
+    },
+    {
+      "id": "R05",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "按要求用中文先讲“for two years说的是多久”，结合搬走与仍居住的情境解释时态；“最常见的理解”和“这种用法”保留了语境范围。后续直接修复关键词选时态的过度概括，并追问需要知道什么情境；未出现掌握判断。",
+      "run_id": "tense_d"
+    },
+    {
+      "id": "R06",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "准确区分“观察到差异”和“证明了原因”，同时指出“强制参加”和“提高每个人”还需额外证据。后续明确“另一种解释，还不能当成已知事实”及证据不足不等于活动无效；可复用检查问题贴合换话题的障碍，没有需要评分的掌握判断。",
+      "run_id": "argument_a"
+    },
+    {
+      "id": "R07",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "先只提示底数关系和改写，未包办求解；学生提交完整解答后核对答案并补上“t=3^x>0”，没有要求重做。将证据准确限定为“得到改写方向的提示后，能自行完成换元、求解和回代”，并把混合新题与延迟检查作为未来步骤。",
+      "run_id": "math_d"
+    },
+    {
+      "id": "R08",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "以“研究的是谁，改变的又是什么”修复需求与需求量的混淆，正确区分自身价格变化与偏好变化。追问偏好情形时用同价下买得更多解释右移，并交回一个针对性的解释任务；没有宣布掌握或迁移。",
+      "run_id": "demand_d"
+    },
+    {
+      "id": "R09",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": null,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "三题未预标方法，覆盖分部积分、先化简及换元，所给完整解答与选择依据均正确。用户要求“停止测试”后立即切换为解答，没有附加门槛；没有学生作答，因此诊断与实际掌握判断均不适用，不能把这轮计作选法通过。",
+      "run_id": "mixed_d"
+    },
+    {
+      "id": "R10",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "起步只问“9可以写成3的几次方”，给出有限帮助。后续核对学生自己提出的换元、求根、还原及t>0，准确说明“提示后会完成解题”不足以证明独立识别；提出的延迟混合检查未被冒充为已发生的结果。",
+      "run_id": "math_c"
+    },
+    {
+      "id": "R11",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "平方关系及换元提示明确，但没有直接解完整题，符合先帮观察的要求；学生的两个解正确。后续清楚限定为“得到关键提示后”完成，并否认据此独立选法；新题尚未作答，“检查……独立表现”只是后续安排，不计作独立证据。未显式补出t>0是可改进的边界提醒，本题两个正根及回代并无错误。",
+      "run_id": "math_b"
+    },
+    {
+      "id": "R12",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "用“结论比证据多说了什么”准确定位因果、强制和每个人的额外要求，随后核对“可能的解释”与已证实事实的差别。评价限定为“在提示下完成了证据与结论的范围检查”，与实际消息相称；没有将脚本修正扩大为跨题掌握。",
+      "run_id": "argument_d"
+    },
+    {
+      "id": "R13",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "以“即使证据是真的，结论有没有可能仍然不成立”引出替代解释，允许学生提出可能而不要求证明发生。后续准确说明证据不足不等于活动无效，并将表现限定为“在提示下修正了这段论证”；可复用的检查动作直接服务于换话题的困难。",
+      "run_id": "argument_c"
+    },
+    {
+      "id": "R14",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "先展示平方关系并请学生写换元后方程，没有公布整题答案；后续对x=0或1的核对正确，并明确起步提示由导师提供，“还不能……判断……独立选方法”。新题称作“没有提示的题”，应理解为未追加逐步提示，仍不能据此预记独立迁移；当前尚无该题结果。未显式补出t>0可改进，但本题正根和结论有效。",
+      "run_id": "math_a"
+    },
+    {
+      "id": "R15",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "简短安排二十分钟后立即从平均变化率开始，水量例子、函数记号与单位均一致。学生表示不清楚值与快慢后，具体区分“14升是水量；2升/分钟是……平均快慢”，并指出不能由此知道瞬时快慢，任务只推进该区别；没有无根据的能力评价。",
+      "run_id": "unit_d"
+    },
+    {
+      "id": "R16",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": 2
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "按要求直接给出“Although I was tired, I finished the task.”及一句理由，没有强制反问。下一轮只给一句记录，明确“本次已提供完整改写示范，下次需验证”无提示写作，既尊重当前模式又没有宣称独立掌握或已创建文件。",
+      "run_id": "direct_d"
+    },
+    {
+      "id": "R17",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "明确确认“金额120和贷方Interest Payable都对”，把错误定位为本金负债与已发生费用的混淆。用“本金从12000降到11880”解释原借方含义，再给正确利息费用分录，保留按月计息约定；无其他应计项目掌握的泛化。",
+      "run_id": "interest_d"
+    },
+    {
+      "id": "R18",
+      "scores": {
+        "correctness": 2,
+        "diagnosis": 2,
+        "next_action": 2,
+        "support_handoff": 2,
+        "evidence_claim": null
+      },
+      "user_control": true,
+      "blocking_issues": [],
+      "brief_findings": "正确计数10n并给出紧界Theta(n)，同时保留O(n^2)作为宽松上界的数学有效性，否定的是按嵌套层数判断的理由。后续给range(i)的新例子，条件明确且没有同时公布答案或关键计数；未声称运行计时，也没有把“我懂了”报告成自主能力。",
+      "run_id": "programming_d"
+    }
+  ],
+  "method": "One independent AI reviewer saw anonymized dialogues and per-case criteria, without condition labels or source. Author inspected the restored results. These ratings are qualitative behavioral checks, not learning-outcome scores.",
+  "author_review": "No blocking issue identified in these traces. Ceiling scores and single runs do not establish relative quality. Missing t>0 reminders in two math replies are minor completeness notes; the positive roots are valid. No new practice answers were observed after the final tutor messages."
+}

@@ -1,0 +1,457 @@
+{
+  "metadata": {
+    "date": "2026-11-09",
+    "kind": "Scripted behavioral smoke checks, not human learning research",
+    "baseline_commit": "1273b33656fdb20850c88b72c0978cbf5aef6b76",
+    "runs": 18,
+    "assistant_responses": 34,
+    "model": "Fresh subagents inheriting the same parent model; exact version and sampling parameters were not exposed or independently pinned.",
+    "conditions": {
+      "A": "Host default, no skill read; instructed not to read files or use tools.",
+      "B": "Same as A plus the short teaching prompt below.",
+      "C": "Explicitly instructed to read original/SKILL.md and triggered references in the same runtime-only directory.",
+      "D": "Explicitly instructed to read revised runtime SKILL.md and triggered references in the same runtime-only directory."
+    },
+    "short_prompt": "根据我的作答判断卡点；基础不足时先解释和示范，卡住时给必要帮助；逐步撤去帮助，用新题检查独立表现。区分受助成功与独立掌握，并尊重我直接要答案或跳过的选择。",
+    "isolation": "fork_turns=none; fresh conversation per case and condition; runtime copies exclude evals. Directory restrictions were instructions, not a filesystem security boundary. No raw full tool traces are attached. Actual host natural-language triggering was not tested.",
+    "archive": "After each dialogue ended, the same actor was asked to copy its visible user messages and final replies verbatim to a JSON transcript. Student turns were programmatically checked against fixtures, except the common documented math wording variant. Visible tutor replies were reviewed by the main agent.",
+    "snapshot_note": "The early revised math snapshot differs from revised-final only in an economic-demand definition in teaching-examples.md: the final text explicitly includes willingness and ability to purchase, holding other conditions fixed. All later D checks use revised-final.",
+    "coverage": "D covers all 12 scenario intents, with one math prompt variant; A/B/C only the same math variant and argumentation case, once each. Fixed student replies are scripted, not measured learning."
+  },
+  "runs": [
+    {
+      "run_id": "argument_a",
+      "case_id": "argumentation-01-causal-claim",
+      "condition": "A",
+      "prompt_variant": false,
+      "runtime_snapshot": null,
+      "messages": [
+        {
+          "role": "user",
+          "content": "这是虚构的写作练习材料：一个学校发现，自愿参加志愿活动的学生平均成绩更高。我据此写‘学校应强制所有学生参加志愿活动，因为这一定会提高每个人的成绩’。我以前学过证据和结论，但换个话题就不知道怎么检查论证。请帮我找最关键的一步。"
+        },
+        {
+          "role": "assistant",
+          "content": "最关键的一步是：**把“观察到差异”和“证明了原因”分开。**\n\n材料告诉你：自愿参加志愿活动的学生，平均成绩更高。你的结论却需要证明：**是参加志愿活动使成绩提高了。**\n\n试着问一句：如果这些学生原本就更自律，因而既愿意参加活动、成绩也更好，材料中的现象还能成立吗？能。那就说明，现有证据还不能确定是谁导致了成绩更高。\n\n换个话题时，也可以用同一个检查问题：\n\n**“有没有另一种解释，能让证据成立，却让我的结论不成立？”**\n\n先抓住这一步。至于“强制参加”和“提高每个人的成绩”，还需要额外证据；当前材料并没有支持到那么远。"
+        },
+        {
+          "role": "user",
+          "content": "我想改成‘这个结果值得进一步研究，但它不能单独证明强制参加会使每个人成绩提高；两组学生可能原本就不同’。这样是不是更符合材料能支持的范围？"
+        },
+        {
+          "role": "assistant",
+          "content": "是的，这样更符合材料能支持的范围。\n\n你保留了“值得进一步研究”，也指出了因果关系尚未得到证明。“两组学生**可能**原本就不同”也很准确：这是需要排查的另一种解释，还不能当成已知事实。\n\n尤其是“**不能单独证明**”——证据不足以支持原结论，并不等于证明志愿活动没有作用。\n\n换个话题时，可以继续检查：**我的结论有没有比证据多走一步？那一步需要什么额外证据？**"
+        }
+      ]
+    },
+    {
+      "run_id": "argument_b",
+      "case_id": "argumentation-01-causal-claim",
+      "condition": "B",
+      "prompt_variant": false,
+      "runtime_snapshot": null,
+      "messages": [
+        {
+          "role": "user",
+          "content": "这是虚构的写作练习材料：一个学校发现，自愿参加志愿活动的学生平均成绩更高。我据此写‘学校应强制所有学生参加志愿活动，因为这一定会提高每个人的成绩’。我以前学过证据和结论，但换个话题就不知道怎么检查论证。请帮我找最关键的一步。"
+        },
+        {
+          "role": "assistant",
+          "content": "从你的例子看，最值得先练的一步是：**问“即使前者没有造成后者，这个现象还可能出现吗？”**\n\n我先示范一次：\n\n- **证据说：**自愿参加志愿活动的学生，平均成绩更高。\n- **你的结论需要：**参加志愿活动会使成绩提高。\n- **另一种可能：**本来就更自律的学生，既更愿意参加活动，成绩也更好。即使活动没有提高成绩，也会看到这个现象。\n\n所以，关键缺口是：**观察到两件事一起出现，还不能确定谁造成了谁。**这条证据因此不足以支持“强制参加一定提高每个人成绩”。\n\n换个话题，看看你能否自己找到这个缺口：\n\n> 一家商店发现，领取优惠券的顾客平均消费更高，于是认为：“发优惠券一定能让顾客多花钱。”\n\n**即使优惠券没有使人多花钱，这个现象还可能怎样出现？**先找一种解释就够了；你也可以直接要示范或跳过。"
+        },
+        {
+          "role": "user",
+          "content": "我想改成‘这个结果值得进一步研究，但它不能单独证明强制参加会使每个人成绩提高；两组学生可能原本就不同’。这样是不是更符合材料能支持的范围？"
+        },
+        {
+          "role": "assistant",
+          "content": "是的，这样更符合材料能支持的范围。你做对了两点：\n\n- 用“不能单独证明”保留了研究的价值，也准确限定了结论。\n- 用“可能原本就不同”提出另一种解释，没有把这种可能说成事实。\n\n这说明你能根据刚才的示范修正原题；能否独立迁移，可以再用一道新题检查：\n\n> 一个平台发现，经常发帖的用户更容易续费，于是认为：“要求所有用户每周发帖，一定能提高续费率。”\n\n**这项推断是否充分？请用一句话说明理由。**也可以选择跳过。"
+        }
+      ]
+    },
+    {
+      "run_id": "argument_c",
+      "case_id": "argumentation-01-causal-claim",
+      "condition": "C",
+      "prompt_variant": false,
+      "runtime_snapshot": "original",
+      "messages": [
+        {
+          "role": "user",
+          "content": "这是虚构的写作练习材料：一个学校发现，自愿参加志愿活动的学生平均成绩更高。我据此写‘学校应强制所有学生参加志愿活动，因为这一定会提高每个人的成绩’。我以前学过证据和结论，但换个话题就不知道怎么检查论证。请帮我找最关键的一步。"
+        },
+        {
+          "role": "assistant",
+          "content": "最关键的一步是：**检查从证据到结论，多加了什么未经证明的假设。**\n\n你引用的证据是“自愿参加的学生平均成绩更高”，但结论把它解释成了“参加活动导致成绩提高”。这是最先需要检查的跳跃。\n\n换个话题时，也可以用同一个问题：**即使证据是真的，结论有没有可能仍然不成立？**\n\n先只检查这一处：假设志愿活动本身没有提高成绩，什么情况仍可能让自愿参加的学生平均成绩更高？试着提出一个可能的解释，不必证明它确实发生了。"
+        },
+        {
+          "role": "user",
+          "content": "我想改成‘这个结果值得进一步研究，但它不能单独证明强制参加会使每个人成绩提高；两组学生可能原本就不同’。这样是不是更符合材料能支持的范围？"
+        },
+        {
+          "role": "assistant",
+          "content": "是的，这个改写更符合材料能支持的范围。你保留了观察结果，同时撤回了“强制参加一定能提高每个人成绩”的断言。\n\n**“不能单独证明”尤其准确**：证据不足，不等于已经证明活动无效。“两组学生可能原本就不同”也是合理的替代解释；你用了“可能”，没有把它当成已知事实。\n\n你已经在提示下修正了这段论证。换话题时，可以保留这个检查动作：**找一种“证据仍然成立，但结论不成立”的可能情况。** 它能帮助你发现证据与结论之间缺少的依据。"
+        }
+      ]
+    },
+    {
+      "run_id": "argument_d",
+      "case_id": "argumentation-01-causal-claim",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "这是虚构的写作练习材料：一个学校发现，自愿参加志愿活动的学生平均成绩更高。我据此写‘学校应强制所有学生参加志愿活动，因为这一定会提高每个人的成绩’。我以前学过证据和结论，但换个话题就不知道怎么检查论证。请帮我找最关键的一步。"
+        },
+        {
+          "role": "assistant",
+          "content": "最关键的一步是：**检查结论比证据多说了什么，而新增的部分有没有依据。** 换话题时也能这样检查，不必先想出某个逻辑错误的名称。\n\n把你的论证拆开看：\n\n| 材料实际提供的证据 | 你的结论需要成立的一步 |\n|---|---|\n| 自愿参加活动的学生，平均成绩更高 | 参加活动会使学生的成绩提高 |\n\n你引用的观察没有问题，需要检查的是这两句话之间的连接。“强制”“一定”“每个人”还增加了要求，我们先抓住最前面的这一步。\n\n请先判断：**“一群学生的成绩更高”和“活动使学生的成绩提高”有什么区别？** 用自己的话说一句即可，不需要术语。"
+        },
+        {
+          "role": "user",
+          "content": "我想改成‘这个结果值得进一步研究，但它不能单独证明强制参加会使每个人成绩提高；两组学生可能原本就不同’。这样是不是更符合材料能支持的范围？"
+        },
+        {
+          "role": "assistant",
+          "content": "是，这样更符合材料能支持的范围。你做对了两个关键动作：\n\n- 把“观察到两组平均成绩不同”与“强制参加会使每个人提高”分开。\n- 把“两组学生原本就不同”作为**可能的解释**，没有当作已证实的事实。\n\n“不能单独证明”尤其准确：现有证据不足以支持原结论，也不等于已经证明活动无效。\n\n原结论还从“自愿”跳到了“强制”、从“平均”跳到了“每个人”；你的改写也避免了这些扩大。这次你已经在提示下完成了证据与结论的范围检查。"
+        }
+      ]
+    },
+    {
+      "run_id": "chain_d",
+      "case_id": "math-02-chain-reason",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "y=(3x+4)^5，我写 y'=5(3x+4)^4。我觉得里面的 3x+4 已经保留了，所以不用再乘 3。请帮我弄清我想错在哪里。"
+        },
+        {
+          "role": "assistant",
+          "content": "你对外层“五次方”的求导是对的。错在把**“保留里面的值”**和**“考虑里面的变化速度”**当成了同一件事。\n\n令 \\(u=3x+4\\)，那么 \\(y=u^5\\)。你算出的\n\\[\n5(3x+4)^4=5u^4\n\\]\n表示的是 **\\(y\\) 相对于 \\(u\\) 的变化率**，但题目要的是 \\(y\\) 相对于 **\\(x\\)** 的变化率。\n\n这两者为什么不同？因为当 \\(x\\) 增加一点点 \\(\\Delta x\\) 时，\\(u\\) 增加的是 \\(3\\Delta x\\)。于是\n\\[\n\\Delta y\\approx 5u^4\\Delta u\n=5u^4\\cdot3\\Delta x.\n\\]\n所以\n\\[\n\\boxed{y'=5(3x+4)^4\\cdot3=15(3x+4)^4}.\n\\]\n\n这里两个部分各管一件事：\n\n- **保留 \\(3x+4\\)**：告诉外层函数，当前输入的值是多少。\n- **再乘 \\(3\\)**：考虑这个输入随 \\(x\\) 变化得有多快。\n\n你原来的式子已经考虑了内层的**值**，但还没考虑内层的**变化率**。"
+        },
+        {
+          "role": "user",
+          "content": "我现在看着你的解释能补上那个因子。这是不是说明我遇到变形题也会了？"
+        },
+        {
+          "role": "assistant",
+          "content": "还不能据此确认。按你的描述，你现在能**借助解释修正原题**；能否独立识别变形、正确求导，还需要实际作答来判断。“尚未验证”也不等于“不会”。\n\n可以先不看上面的解释，试一道新题：\n\\[\ny=(x^2+4)^5\n\\]\n求 \\(y'\\)，写出过程，并简短说明理由。\n\n这能初步检查你能否把理解用到变化后的题目。即使做对，因为刚讲过相关方法，也还需要以后在混合题、隔一段时间后的新题中看看能否自行判断。"
+        }
+      ]
+    },
+    {
+      "run_id": "continue_d",
+      "case_id": "accounting-02-continue-unearned",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "继续学调整分录。这是上次的记录：我已独立做对两道应计利息题；收到钱但还没履约的情形还没练。今天看这个：公司提前收了 6000 服务费，先记作 Unearned Revenue；期末服务已经完成三分之一。我觉得期末没再收钱，所以不用确认 Revenue。我想知道该怎么判断。"
+        },
+        {
+          "role": "assistant",
+          "content": "你已独立做对两道应计利息题，我们就从还没练过的**预收收入**开始。\n\n你观察到“期末没有再收钱”，这点是对的，因此这笔调整不涉及 Cash。需要修正的是：**收入按服务是否已经完成来确认，收钱和赚得收入可以发生在不同时间。**\n\n把这笔业务分成两个时点看：\n\n- **提前收到 6000 时**：还没提供服务，公司仍欠客户服务，所以先记入 Unearned Revenue。它虽然名字里有 Revenue，性质却是**负债**。\n- **期末已完成三分之一时**：公司已经履行了部分义务，赚得收入 \\(6000×\\frac13=2000\\)。这部分应从负债转为收入。\n\n因此，期末调整分录是：\n\n| 账户 | 借方 | 贷方 |\n|---|---:|---:|\n| Unearned Revenue | 2000 | |\n| Service Revenue | | 2000 |\n\n负债减少记借方，收入增加记贷方。调整后，剩余的 4000 仍是 Unearned Revenue，代表尚未提供的服务。\n\n以后判断这类题，先问：**截至期末，已经提供了多少服务？对应收入是否已经入账？** 本题已经赚得 2000，但账上仍把全部 6000 记成负债，所以需要调整。\n\n现在只改一个条件：同样提前收到 6000，也已记入 Unearned Revenue，但期末服务尚未开始。此时需要确认 Revenue 吗？请说出判断依据。"
+        },
+        {
+          "role": "user",
+          "content": "这条借方减少负债、贷方确认已经赚到的收入，我明白了。今天先停，不要再出题，给我一句下次接着学哪里就好。"
+        },
+        {
+          "role": "assistant",
+          "content": "下次从预收收入的独立练习接着学，重点是根据服务完成情况判断应确认的收入，并写出调整分录。"
+        }
+      ]
+    },
+    {
+      "run_id": "demand_d",
+      "case_id": "economics-01-shift-or-movement",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "在一个练习市场里，其他条件不变，只是咖啡自身价格从 20 升到 25。我写‘需求减少，需求曲线左移’。我知道曲线怎么画，就是题目换成文字时总判断错。请教我怎么判断。"
+        },
+        {
+          "role": "assistant",
+          "content": "这题应改为：**咖啡需求量减少，沿原来的需求曲线向左上方移动；需求曲线不变。**（按通常向右下方倾斜的需求曲线。）\n\n你说自己会画图，我们就集中练“怎样把文字转成图上的变化”。\n\n一条需求曲线包含一整套关系：**20元时愿意买多少、25元时愿意买多少……** 因此，咖啡从20元涨到25元，只是从这条曲线上的一个点换到另一个点。“需求量”是某个价格对应的数量；“需求”是这整套价格与数量的关系。\n\n读文字题，先找：**研究的是谁，改变的又是什么？**\n\n| 题目给出的变化 | 对应判断 |\n|---|---|\n| 只有所研究商品自身的价格变化，其他条件不变 | 需求量变化，沿原曲线移动 |\n| 收入、偏好等因素变化，使同一价格下愿意购买的数量改变 | 需求变化，需求曲线移动 |\n\n你的原题可以压缩成：**研究咖啡 → 只有咖啡自身价格上涨 → 在原曲线上找更高价格对应的点。** 所以，不能仅凭“买得少了”判断曲线左移；还要看为什么少买。\n\n现在换两种文字表述。请各写一句判断，并说明改变的因素：\n\n1. 咖啡店取消每杯5元的优惠，消费者偏好等其他条件不变。咖啡的需求或需求量怎样变化，图上怎样表示？\n2. 咖啡价格不变，消费者对咖啡的喜爱程度下降，其他条件不变。咖啡的需求或需求量怎样变化，图上怎样表示？"
+        },
+        {
+          "role": "user",
+          "content": "如果改成消费者更喜欢咖啡，但咖啡当前价格没变，我是不是也沿原来那条曲线移动？"
+        },
+        {
+          "role": "assistant",
+          "content": "这次应判断为：**需求增加，需求曲线右移。** 假设其他条件不变，消费者更喜欢咖啡，会使他们在**同一个价格下**愿意购买更多咖啡。\n\n“当前价格没变”并不表示“需求曲线没变”。一条需求曲线表示：**偏好等条件固定时，不同价格分别对应多少需求量。** 现在偏好变了，这套对应关系就变了。\n\n把两题并排看：\n\n| 情境 | 购买数量变化的原因 | 图上表示 |\n|---|---|---|\n| 咖啡从20元涨到25元，其他条件不变 | 咖啡自身价格改变 | 沿原曲线移动 |\n| 咖啡价格不变，消费者更喜欢咖啡 | 偏好改变，同价下买得更多 | 需求曲线右移 |\n\n先判断**什么因素变了**，再判断怎么移动。\n\n试着解释一句：如果价格仍是20元，但现在愿意购买的数量更多，为什么原来曲线上对应20元的那个点已经不能表示新情况了？"
+        }
+      ]
+    },
+    {
+      "run_id": "direct_d",
+      "case_id": "language-02-direct-answer",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我们在学英文写作，但这次我赶着交练习，只要你直接给出完整改写和一句理由，不要反问或出题：Although I was tired, but I finished the task."
+        },
+        {
+          "role": "assistant",
+          "content": "Although I was tired, I finished the task.\n\n理由：在标准英语中，although 引导让步从句时，主句前不再加 but。"
+        },
+        {
+          "role": "user",
+          "content": "谢谢，之后我还想继续学让步关系。先帮我用一句话记下下次需要验证什么，不用创建文件。"
+        },
+        {
+          "role": "assistant",
+          "content": "本次已提供完整改写示范，下次需验证你能否在无提示的新语境中独立写出表达让步关系的正确句子，并说明连接词的选择依据。"
+        }
+      ]
+    },
+    {
+      "run_id": "interest_d",
+      "case_id": "accounting-01-accrued-interest",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "借款人于 20X1 年 11 月 1 日借入 12000，年利率 6%，本金和利息明年才付。课堂采用按月计息。12 月 31 日调整分录，我算利息 120，写 Debit Notes Payable 120，Credit Interest Payable 120。金额应该对了，为什么借方科目不对？"
+        },
+        {
+          "role": "assistant",
+          "content": "你的**金额 120 和贷方 Interest Payable 都对**。借方的问题在于：这两个月发生的是利息费用，本金并没有减少。\n\n按月计息，11 月和 12 月共两个月：\n\\[\n12{,}000\\times6\\%\\times\\frac{2}{12}=120\n\\]\n\n区分这两个科目：\n\n- **Notes Payable（应付票据）**记录借款本金，是负债。借记它表示本金负债减少；你原来的分录会把本金从 12,000 降到 11,880，但题目中并未偿还本金。\n- **Interest Expense（利息费用）**记录借钱期间发生的成本。虽然明年才付款，这两个月的费用已经发生，应计入今年；费用增加记借方。\n\n所以 12 月 31 日的调整分录是：\n\n| 科目 | Debit 借方 | Credit 贷方 |\n|---|---:|---:|\n| Interest Expense | 120 | |\n| Interest Payable | | 120 |\n\n这笔分录表达的是：**今年发生了 120 的利息费用，同时欠下 120 的利息；本金仍欠 12,000。**"
+        }
+      ]
+    },
+    {
+      "run_id": "math_a",
+      "case_id": "math-03-hidden-quadratic",
+      "condition": "A",
+      "prompt_variant": true,
+      "runtime_snapshot": null,
+      "messages": [
+        {
+          "role": "user",
+          "content": "我会解二次方程，也知道指数运算，但遇到 9^x - 4·3^x + 3 = 0 就不知道怎么起步。你先帮我弄清应该观察什么，不要直接给完整答案。"
+        },
+        {
+          "role": "assistant",
+          "content": "先观察**底数 9 和 3 的关系**：因为 \\(9=3^2\\)，所以\n\\[\n9^x=(3^2)^x=(3^x)^2.\n\\]\n\n这样，方程里出现的就是同一个整体 \\(3^x\\) 的**平方、一次项**，再加上常数项——这和你熟悉的二次方程很像。\n\n试着把 \\(3^x\\) 暂时记作 \\(t\\)，原方程会变成什么？先写出这一步，不急着求 \\(x\\)。"
+        },
+        {
+          "role": "user",
+          "content": "你一说改写我就会了。我令 t=3^x，得到 t²−4t+3=0，t=1 或 3，所以 x=0 或 1。是不是说明我现在遇到变形题已经能自己选方法了？"
+        },
+        {
+          "role": "assistant",
+          "content": "你的解答正确，\\(x=0\\) 或 \\(1\\)。\n\n这说明你**理解了换元的思路，而且能顺利完成求解**。不过，这次“观察底数关系”的起步提示是我给的，所以还不能仅凭这一题判断你已经能独立选方法。\n\n我们可以用一道没有提示的题检查一下：\n\\[\n2^{2x}+2^{x+1}-8=0.\n\\]\n先不用求答案，只说：**你准备选什么方法？题目中的什么结构让你这样选？**"
+        }
+      ]
+    },
+    {
+      "run_id": "math_b",
+      "case_id": "math-03-hidden-quadratic",
+      "condition": "B",
+      "prompt_variant": true,
+      "runtime_snapshot": null,
+      "messages": [
+        {
+          "role": "user",
+          "content": "我会解二次方程，也知道指数运算，但遇到 9^x - 4·3^x + 3 = 0 就不知道怎么起步。你先帮我弄清应该观察什么，不要直接给完整答案。"
+        },
+        {
+          "role": "assistant",
+          "content": "这里起步要观察的是：**不同底数之间有没有关系，能不能把各项写成同一个量的幂。**\n\n这题里，\\(9=3^2\\)，所以\n\\[\n9^x=(3^2)^x=(3^x)^2.\n\\]\n\n这样，原式中的 \\(9^x\\) 和 \\(3^x\\)，就是**同一个量 \\(3^x\\) 的平方和一次方**，你熟悉的二次方程结构就出现了。\n\n先只做一步：令 \\(t=3^x\\)，原方程会变成什么关于 \\(t\\) 的方程？暂时不用解它。"
+        },
+        {
+          "role": "user",
+          "content": "你一说改写我就会了。我令 t=3^x，得到 t²−4t+3=0，t=1 或 3，所以 x=0 或 1。是不是说明我现在遇到变形题已经能自己选方法了？"
+        },
+        {
+          "role": "assistant",
+          "content": "你的解答完全正确。它说明你**得到关键提示后，能顺利完成换元、求解和还原**。不过，识别结构这一步刚才有我的帮助，所以还不能据此判断你已经能独立选方法，更不能推广到所有变形题。\n\n我们先用一道新题检查这一类题的独立表现：\n\\[\n2^{2x+1}-5\\cdot2^x+2=0.\n\\]\n\n这次你自己起步：**写出你观察到的关系、为什么选择这个方法，再完成求解。**"
+        }
+      ]
+    },
+    {
+      "run_id": "math_c",
+      "case_id": "math-03-hidden-quadratic",
+      "condition": "C",
+      "prompt_variant": true,
+      "runtime_snapshot": "original",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我会解二次方程，也知道指数运算，但遇到 9^x - 4·3^x + 3 = 0 就不知道怎么起步。你先帮我弄清应该观察什么，不要直接给完整答案。"
+        },
+        {
+          "role": "assistant",
+          "content": "先观察两个含 \\(x\\) 的项：\\(9^x\\) 和 \\(3^x\\)。它们的底数有联系，利用这个联系改写，可能就会露出你熟悉的方程结构。\n\n**\\(9\\) 可以写成 \\(3\\) 的几次方？据此，你能怎样改写 \\(9^x\\)？**\n\n先写出这一步就好，暂时不用解方程。"
+        },
+        {
+          "role": "user",
+          "content": "你一说改写我就会了。我令 t=3^x，得到 t²−4t+3=0，t=1 或 3，所以 x=0 或 1。是不是说明我现在遇到变形题已经能自己选方法了？"
+        },
+        {
+          "role": "assistant",
+          "content": "你的解法和答案都正确：你自己提出了 \\(t=3^x\\)，完成了二次方程求解，再还原出 \\(x=0\\) 或 \\(1\\)。而且 \\(t>0\\)，两个根都符合要求。\n\n不过，**这次能证明你在提示后会完成解题，还不足以证明你能独立识别变形、选择方法。** 我此前指出了底数关系和改写方向，这给了你关键线索；你接住线索并完成后续步骤，是已经表现出来的能力。\n\n下一步最有价值的是：隔一段时间，在不标注方法、混有不同结构的新题里，自己选择方法并说明理由。即使现在马上做对一道类似题，也仍可能受刚才思路的提醒。"
+        }
+      ]
+    },
+    {
+      "run_id": "math_d",
+      "case_id": "math-03-hidden-quadratic",
+      "condition": "D",
+      "prompt_variant": true,
+      "runtime_snapshot": "revised",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我会解二次方程，也知道指数运算，但遇到 9^x - 4·3^x + 3 = 0 就不知道怎么起步。你先帮我弄清应该观察什么，不要直接给完整答案。"
+        },
+        {
+          "role": "assistant",
+          "content": "先观察 **\\(9^x\\) 和 \\(3^x\\) 之间的关系**：它们能不能用同一个量来表示？这能帮助你发现熟悉的方程结构。\n\n从底数入手：\\(9=3^2\\)。你试着用指数运算法则改写\n\\[\n9^x=(3^2)^x\n\\]\n看看它与 \\(3^x\\) 有什么关系。\n\n先写出这一步就好，暂时不用求 \\(x\\)。"
+        },
+        {
+          "role": "user",
+          "content": "你一说改写我就会了。我令 t=3^x，得到 t²−4t+3=0，t=1 或 3，所以 x=0 或 1。是不是说明我现在遇到变形题已经能自己选方法了？"
+        },
+        {
+          "role": "assistant",
+          "content": "这道题你解对了。再补上 \\(t=3^x>0\\)，而 \\(t=1,3\\) 都符合这个限制，解答就更完整了。\n\n**目前能确认：你得到改写方向的提示后，能自行完成换元、求解和回代。** 还不能仅凭这一题判断你已经能独立选择方法，因为我先提示了观察关系和改写方向。\n\n下一步最值得检验的是：在不标方法、混合几种已学知识的新题里，你能否自己找到关系并完成求解；隔一段时间再试，才能进一步判断是否保持住了。即使马上做对一道类似题，也仍会受到刚才提示的帮助。"
+        }
+      ]
+    },
+    {
+      "run_id": "mixed_d",
+      "case_id": "math-04-mixed-choice",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我已经学过积分的换元法和分部积分，也会基础积分。请出一个三题短测，检查我能否自己选方法。不要标方法名称，不给选项；先让我写选择依据和第一步，暂时不要公布答案。"
+        },
+        {
+          "role": "assistant",
+          "content": "每题只写**选择依据和第一步**，暂时不用算完。选择依据请结合题目中的具体关系；第一步请写出实际的数学表达式。\n\n1. \\(\\displaystyle \\int x e^{2x}\\,dx\\)\n\n2. \\(\\displaystyle \\int \\frac{x^2+1}{x^2}\\,dx \\qquad (x>0)\\)\n\n3. \\(\\displaystyle \\int x e^{x^2}\\,dx\\)\n\n按“第几题—选择依据—第一步”作答即可。等你提交三题后再一起反馈，暂不公布答案。"
+        },
+        {
+          "role": "user",
+          "content": "先停止测试吧，直接给我刚才题目的完整解答和选择方法的依据。"
+        },
+        {
+          "role": "assistant",
+          "content": "好的，停止测试。下面直接给出三题的完整解答和选法依据。\n\n**1. \\(\\displaystyle \\int xe^{2x}\\,dx\\)**\n\n选择分部积分，因为 \\(x\\) 求导后变成常数，而 \\(e^{2x}\\) 容易积分，这样可以把剩下的积分简化。\n\n令\n\\[\nu=x,\\qquad dv=e^{2x}\\,dx,\n\\]\n则\n\\[\ndu=dx,\\qquad v=\\frac12e^{2x}.\n\\]\n由 \\(\\int u\\,dv=uv-\\int v\\,du\\)，\n\\[\n\\begin{aligned}\n\\int xe^{2x}\\,dx\n&=\\frac{x}{2}e^{2x}-\\frac12\\int e^{2x}\\,dx\\\\\n&=\\boxed{\\frac{x}{2}e^{2x}-\\frac14e^{2x}+C}.\n\\end{aligned}\n\\]\n\n**2. \\(\\displaystyle \\int\\frac{x^2+1}{x^2}\\,dx\\quad(x>0)\\)**\n\n先做代数改写，因为分子中的每一项都能分别除以 \\(x^2\\)，得到可以直接积分的幂函数：\n\\[\n\\frac{x^2+1}{x^2}=1+x^{-2}.\n\\]\n所以\n\\[\n\\begin{aligned}\n\\int\\frac{x^2+1}{x^2}\\,dx\n&=\\int(1+x^{-2})\\,dx\\\\\n&=x+\\frac{x^{-1}}{-1}+C\\\\\n&=\\boxed{x-\\frac1x+C}.\n\\end{aligned}\n\\]\n\n**3. \\(\\displaystyle \\int xe^{x^2}\\,dx\\)**\n\n选择换元，因为指数中的 \\(x^2\\) 的导数是 \\(2x\\)，与积分中已有的因子 \\(x\\) 只差一个常数倍。\n\n令\n\\[\nu=x^2,\\qquad du=2x\\,dx,\n\\]\n于是\n\\[\n\\begin{aligned}\n\\int xe^{x^2}\\,dx\n&=\\frac12\\int e^u\\,du\\\\\n&=\\frac12e^u+C\\\\\n&=\\boxed{\\frac12e^{x^2}+C}.\n\\end{aligned}\n\\]\n\n第一题和第三题虽然都有乘积外观，但选法依据不同：第一题利用“一部分求导后简化，另一部分易积分”；第三题利用“内层函数的导数已在外面出现”。第二题则先化简，直接使用基础积分公式。"
+        }
+      ]
+    },
+    {
+      "run_id": "programming_d",
+      "case_id": "programming-01-loop-bounds",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我学过大 O，但一换代码就不会判断。下面是 Python，n 是非负整数，采用基础课程中每次循环体操作视为常数时间的模型。我看到两层循环就写 O(n^2)，这理由对吗？\n\ndef f(n):\n    total = 0\n    for i in range(n):\n        for j in range(10):\n            total += i + j\n    return total"
+        },
+        {
+          "role": "assistant",
+          "content": "**“有两层循环，所以是 \\(O(n^2)\\)”这个理由不成立。** 要看各层循环实际执行多少次，以及次数是否随 \\(n\\) 增长。\n\n这段代码中：\n\n- 外层 `range(n)` 执行 \\(n\\) 次。\n- 每次进入内层，`range(10)` 都只执行固定的 \\(10\\) 次。\n- 因此 `total += i + j` 总共执行 \\(10n\\) 次。\n\n按你给定的常数时间模型，运行时间随 \\(n\\) 线性增长，通常写 **\\(O(n)\\)**；更精确的紧确界是 **\\(\\Theta(n)\\)**。\n\n这里要区分结论与理由：大 O 表示上界，所以写 \\(O(n^2)\\) 在数学上也是成立的，只是上界较宽；但“看到两层循环”不能作为这个判断的充分依据。\n\n下次可以先问自己：**最内层操作总共执行多少次？** 然后再判断增长速度。\n\n试着只把 `range(10)` 改为 `range(n)`：最内层操作总共执行多少次，你会据此写出什么复杂度？"
+        },
+        {
+          "role": "user",
+          "content": "我懂你这段解释了。请另给一个外观相近但循环次数关系不同的小例子，先让我判断，不要同时公布答案。"
+        },
+        {
+          "role": "assistant",
+          "content": "看这个例子。仍设 \\(n\\) 是非负整数，每次循环体操作视为常数时间：\n\n```python\ndef g(n):\n    total = 0\n    for i in range(n):\n        for j in range(i):\n            total += i + j\n    return total\n```\n\n请判断它的时间复杂度，尽量给出紧的界，并说明你的理由。"
+        }
+      ]
+    },
+    {
+      "run_id": "rent_d",
+      "case_id": "economics-02-quota-rent",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "这是一道课堂的竞争市场题：逆需求 P=100-2Q，逆供给也就是边际成本 MC=20+Q。规定最多生产 20 单位；每生产一单位需要一张可交易牌照，总共 20 张，假设没有其他交易成本。我会算消费者价格，但不知道牌照租金该套哪个公式。我写总租金=(100-2×20)×20=1200，这样对吗？"
+        },
+        {
+          "role": "assistant",
+          "content": "**消费者价格 \\(60\\) 算对了，但 \\(1200\\) 是销售总收入，不是牌照总租金。** 生产商品还需要成本，销售收入不能全部归给牌照。\n\n先确认限产是否真的约束市场：没有限产时，\n\\[\n100-2Q=20+Q\n\\quad\\Rightarrow\\quad Q=\\frac{80}{3}>20。\n\\]\n所以限产有效，实际产量为 \\(20\\)，牌照具有稀缺价值。\n\n设每张牌照的租金为 \\(r\\)。每生产一单位需要一张牌照，因此竞争均衡中，**边际一单位的售价恰好覆盖生产边际成本和牌照费用**：\n\\[\nP=MC+r。\n\\]\n这就是选择公式的依据。\n\n在 \\(Q=20\\) 时，\n\\[\nP=100-2\\times20=60,\\qquad MC=20+20=40，\n\\]\n所以\n\\[\nr=60-40=20，\n\\qquad\n\\boxed{\\text{牌照总租金}=20\\times20=400。}\n\\]\n\n区分这两个乘法：**商品价格 × 产量是销售收入；每张牌照的租金 × 牌照数量才是牌照总租金。**"
+        }
+      ]
+    },
+    {
+      "run_id": "tense_d",
+      "case_id": "language-01-tense-context",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "请用中文带我理解 I lived in Hong Kong for two years 和 I have lived in Hong Kong for two years 的区别。我知道过去式和过去分词怎么变，但不理解为什么有 for two years 还可以用不同的时态。一次先讲一个关键区别。"
+        },
+        {
+          "role": "assistant",
+          "content": "先抓住一个关键区别：**for two years 说的是“多久”，时态说明的是“这段时间与现在有什么关系”。**\n\n两段经历都可以持续两年，但位置不同：\n\n- **I lived in Hong Kong for two years.**  \n  “我以前在香港住过两年。”把这两年作为**过去已经结束的一段经历**来讲。比如：2019 年搬去，2021 年搬走。\n\n- **I have lived in Hong Kong for two years.**  \n  最常见的理解是：“我在香港已经住了两年了。”两年前搬来，**一直住到现在**。\n\n所以，**同样长达两年，可以是“过去的两年”，也可以是“截至现在的两年”**。`for two years` 本身没有告诉我们是哪一种，因此不能只看它决定时态。\n\n试着表达一个小情境：你在上海住了三年，去年已经搬走。请补全 **I ___ in Shanghai for three years.**，并说说情境里的哪条信息帮助你选择。"
+        },
+        {
+          "role": "user",
+          "content": "所以我以后看到 for two years，就一律用现在完成时，可以吗？"
+        },
+        {
+          "role": "assistant",
+          "content": "不可以。**“持续两年”不等于“持续到现在”。**\n\n把 `for two years` 想成一把尺子：它能量出这段经历有多长，却不能告诉你它什么时候结束。\n\n比如：“我 2018 年搬到香港，2020 年搬走。”虽然也住了两年，但这段居住经历已经结束，所以说：\n\n**I lived in Hong Kong for two years.**\n\n如果是“两年前搬来，一直住到现在”，才符合我们刚才讲的 **I have lived…** 这种用法。区别来自居住经历与现在的关系，不是 `for two years` 这几个词。\n\n现在只告诉你：“小林在香港住了两年。”要替他选择这两种时态，你还需要了解什么？"
+        }
+      ]
+    },
+    {
+      "run_id": "unit_d",
+      "case_id": "math-01-first-unit",
+      "condition": "D",
+      "prompt_variant": false,
+      "runtime_snapshot": "revised-final",
+      "messages": [
+        {
+          "role": "user",
+          "content": "我会解一元一次方程，也知道函数是什么，但完全没学过导数。请带我学导数，一个知识点一个知识点来，今天有二十分钟。"
+        },
+        {
+          "role": "assistant",
+          "content": "我们按二十分钟左右来安排：先学**平均变化率**，再理解“某一刻的变化快慢”，最后用一个简单函数认识导数。每次只推进一个知识点，根据你的回答调整节奏。\n\n导数要回答的核心问题是：**函数在某个位置，变化得有多快？** 先从一段范围内的变化说起。\n\n现在学第一个知识点：**平均变化率**。\n\n假设水箱里的水在 3 分钟内从 10 升增加到 16 升：\n\n- 水量增加了 \\(16-10=6\\) 升；\n- 平均每分钟增加 \\(6\\div3=2\\) 升。\n\n这个“平均每分钟增加多少”，就是水量相对于时间的平均变化率。它不代表每一分钟都恰好增加 2 升，只描述这 3 分钟的整体情况。\n\n换成你熟悉的函数 \\(y=f(x)\\)，同样是：\n\n\\[\n\\text{平均变化率}\n=\\frac{\\text{输出的变化量}}{\\text{输入的变化量}}\n=\\frac{\\text{后来的 }y-\\text{原来的 }y}\n{\\text{后来的 }x-\\text{原来的 }x}\n\\]\n\n分子告诉我们“总共变了多少”，除以分母，才得到“平均每单位输入对应多少输出变化”。\n\n现在你来试一次：\n\n某个函数满足 \\(f(2)=5\\)，\\(f(6)=17\\)。当 \\(x\\) 从 2 变到 6 时，函数的平均变化率是多少？\n\n**请写出算式，再用一句话解释结果的意思。**"
+        },
+        {
+          "role": "user",
+          "content": "我还分不清‘函数的值’和‘变化的快慢’，能先用一个具体例子讲吗？"
+        },
+        {
+          "role": "assistant",
+          "content": "可以。想象正在往一个水箱里加水。我们用函数表示：**输入是经过的时间，输出是水箱里的水量。**\n\n| 时间 | 水箱里的水量 |\n|---|---:|\n| 开始时 | 10 升 |\n| 2 分钟后 | 14 升 |\n\n**函数的值，回答“这时有多少”。**\n\n第 2 分钟时，函数的值是 14 升，写成 \\(f(2)=14\\)。就像拍一张照片，看到水箱里此时有多少水。\n\n**变化的快慢，回答“每单位时间改变多少”。**\n\n这 2 分钟里，水量从 10 升增加到 14 升，所以平均每分钟增加：\n\n\\[\n\\frac{14-10}{2}=2\\text{ 升/分钟}\n\\]\n\n注意单位的区别：**14 升是水量；2 升/分钟是水量增加的平均快慢。** 这里算的是两分钟内的平均情况，还不能据此知道某一瞬间加水有多快。\n\n你来判断一下：如果另一个水箱此刻也有 14 升水，能确定它加水的快慢与这个水箱相同吗？说说你的理由。"
+        }
+      ]
+    }
+  ]
+}
