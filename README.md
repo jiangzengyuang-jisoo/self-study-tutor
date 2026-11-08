@@ -1,328 +1,126 @@
 # Self-Study Tutor · 自学导师
 
-**Learn one useful unit at a time, then apply concepts, methods, and evidence independently.**
+**一个知识点一个知识点地学，在新题目和新情境中独立运用。**
 
-**逐个能力单元学习，在新情境中独立运用概念、方法与证据。**
+**Learn step by step. Apply what you know in unfamiliar problems and situations.**
 
 [中文](#中文) · [English](#english)
 
 ## 中文
 
-### 这是什么
+Self-Study Tutor 是一个面向自主学习的 AI 教学 skill。它围绕两个目标组织教学：**把知识点拆开讲清楚，以及帮助你从陌生题目中识别应该使用的知识与方法。**
 
-Self-Study Tutor 是一个可复用的 AI 教学技能，用于概念学习、引导练习、闭卷检测、费曼讲解、迁移训练和延迟复习。
+如果你经常“看讲解能懂，自己做却不知道从哪开始”，它会针对这个过程安排示范、练习和反馈：观察什么关系、怎样改写题目、为什么选择这个方法，以及什么条件下需要换一种思路。
 
-它会根据基础提供解释和示范，再逐步减少帮助；区分“看懂答案”“提示下完成”“独立完成”“间隔后仍能完成”和“能迁移到新情境”。你可以随时要求直接答案、完整讲解、切换模式或结束学习。
+### 开始使用
 
-**语言不限。** 教学跟随你指定的语言或当前对话语言。技能规则文件目前使用中文，界面元数据使用英文，这不限制实际回复语言。
-
-### 教学设计
-
-**把“为什么想到这个方法”纳入教学，让练习逐步走向撤去提示后的独立作答。** 以下是项目的主要设计及其面向学习者的价值：
-
-| 优势 | 具体设计 | 对学习者的价值 |
-| --- | --- | --- |
-| 逐个能力单元推进 | 先给简短路线，跳过已有证据会的部分；发现缺口时局部补足。 | 一次解决一个关键障碍，不必读完整章才开始尝试。 |
-| 学会选方法 | 连接题目线索、适用条件和选择理由，比较合理解法，并讨论方法的失效边界。 | 练习看到新题时如何起步，而不只是照着已指定的方法计算。 |
-| 帮助随能力逐步减少 | 基础不足时先解释和示范；卡住时按需提供方向、线索、局部步骤或完整解答，再将思考交还给学习者。 | 初学者有足够的起点，也有机会在支持减少后检验自己的能力。 |
-| 掌握判断有依据 | 分开记录提示下完成、无提示完成、延迟保持与迁移表现；用新题验证，不把“听懂了”或同题重做正确当成掌握。 | 更清楚哪些已经能独立完成，哪些仍依赖帮助，哪些尚未验证。 |
-| 训练解释、迁移与保持 | 结合闭卷讲解、反例、条件变化题、无方法标签的混合题和延迟复测。 | 检查知识能否经得起换问法、换情境与时间间隔，为后续复习提供依据。 |
-| 反馈指出具体卡点 | 优先定位最早的实质错误，保留正确步骤，区分概念、审题、方法选择、推理、计算和表达问题。 | 知道下一步该补概念、练选法还是修正执行，避免把所有错误都归结为“不会”。 |
-| 节奏灵活，学习者保有选择权 | 根据表现调整深度，熟练内容快速推进；允许随时要求直接答案、完整讲解、切换模式或停止。 | 把时间用在当前最需要的环节，不必每次完成整套教学流程。 |
-| 轻量、通用、可复用 | 以技能文件提供教学流程，无需额外运行时；不绑定学科或教学语言，可按支持平台的方式安装并匹配学习请求。 | 同一套学习原则可用于不同主题与项目，减少重复粘贴长提示词的负担。 |
-
-这些内容描述的是技能的教学设计与预期价值，不代表已经证明能提高分数；实际效果应通过撤去帮助后的独立表现和延迟复测来评估。
-
-### 安装
-
-以下步骤以支持本地技能的 Codex 环境为例。其他支持 Agent Skills 的工具，请使用其自己的安装器或技能目录。教学流程本身无需 Python、Node.js 或额外依赖。
-
-#### 方法一：让 Codex 安装
-
-在提供内置 `skill-installer` 的 Codex 中发送：
+把下面的网址复制给你的 agent，让它读取并使用这个 skill，再告诉它你想学什么：
 
 ```text
-请使用 $skill-installer 安装这个 GitHub 仓库中的技能：
 https://github.com/jiangzengyuang-jisoo/self-study-tutor
-
-SKILL.md 位于仓库根目录，仓库内路径为 .，安装名称为 self-study-tutor。
-请保留 references 和 agents 目录。
 ```
 
-这里的 `.` 表示仓库根目录，不是仓库中的同名子目录。安装器会选择它支持的安装位置；如果发现已有版本，应先检查现有内容，避免覆盖自己的修改。
+读取与使用由 agent 根据当前环境支持的方式处理。
 
-#### 方法二：手动安装
+### 它怎样教
 
-当前 Codex 官方文档使用 `~/.agents/skills/` 作为个人技能目录。以下命令需要已安装 Git，且目标目录尚不存在。[目录说明](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
+- **一个知识点一个知识点推进。** 大任务先给简短路线，从必要的单元开始；已会的部分快速通过，卡住时补对应的前置知识。
+- **教你怎样想到方法。** 连接题目线索、隐藏结构、适用条件和第一步；通过变形、条件对比和混合任务，练习自己选择与比较方法。
+- **根据错误改变教学。** 区分概念不懂、没想到方法、不会整理题目和执行出错，采用对应的解释、示范或练习。
+- **提供支持，再逐步交还任务。** 零基础先解释，必要时完整示范；随后逐步减少帮助，让你完成关键判断和实际任务。
+- **用实际表现判断进展。** 分清看懂、提示下完成、独立完成和间隔后仍能完成；结合主动回忆、自己的讲解与新任务安排复习。
 
-**macOS / Linux：**
+你可以随时要求只给提示、直接给完整答案、跳过或停止。教学跟随你指定的语言；继续学习时，使用当前对话或可用学习记录中的实际证据。
 
-```bash
-mkdir -p "$HOME/.agents/skills"
-git clone https://github.com/jiangzengyuang-jisoo/self-study-tutor.git "$HOME/.agents/skills/self-study-tutor"
-```
+### 跨学科应用
 
-**Windows PowerShell：**
+不同任务采用相应的教学方式和评价标准：
 
-```powershell
-$skillRoot = Join-Path $HOME '.agents\skills'
-New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
-git clone https://github.com/jiangzengyuang-jisoo/self-study-tutor.git (Join-Path $skillRoot 'self-study-tutor')
-```
-
-**没有 Git：** 在仓库页面选择 **Code → Download ZIP**，解压后将包含 `SKILL.md` 的文件夹重命名为 `self-study-tutor`，放入上述技能目录。不要多嵌套一层文件夹。
-
-**只在一个项目中使用：** 将同一个完整文件夹放入该项目的 `.agents/skills/self-study-tutor/`。个人安装和项目安装通常选一种即可。
-
-部分版本或内置安装器使用 `$CODEX_HOME/skills`（默认 `~/.codex/skills`）。以当前环境实际支持的位置为准；已经能被发现的安装不需要搬迁，也不要为了兼容路径重复安装。
-
-保留根目录的 `SKILL.md`、完整的 `references/` 和 `agents/`。`README.md` 与 `evals/` 用于使用说明和开发评测，不是教学时必须加载的内容。
-
-### 自动调用：不用每次手动点名
-
-安装并被 Codex 发现后，直接提出学习需求即可，例如“从零教我导数”或“出题检查我是否掌握”。Codex 会根据请求与技能描述的匹配情况决定是否选用。[自动调用说明](https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills)
-
-本仓库没有设置 `allow_implicit_invocation: false`，沿用允许自动调用的默认值 `true`，因此无需额外打开该开关。[调用设置](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
-
-- **适合自动选用：** 学习概念、引导练习、解释自己的理解、测试掌握程度、复习和迁移训练。
-- **不会刻意强制教学：** 单纯查事实、索取答案、制作讲义或代办任务不自动触发教学。用户明确选择另一套教学流程时，优先采用该流程，不重复叠加本技能的教学流程；读取文件、计算、绘图等辅助技能可以按需配合使用。是否采用本技能，仍取决于当前请求是否包含学习需求。
-- **自动匹配并非每次必定触发。** 它依赖技能是否被发现、是否启用及对请求的理解；这也不是后台运行或自动提醒功能。
-
-如果没有触发，先确认技能列表中能找到 `self-study-tutor`，或让助手检查是否可用；安装后仍未出现时刷新技能列表或在新会话检查。需要明确指定时，在对话中输入：
-
-```text
-请使用 $self-study-tutor，从零教我导数，先解释概念，再让我尝试。
-```
-
-这是聊天指令，不是终端命令。更换工具时，其技能选择语法可能不同。
-
-### 使用示例
-
-以下请求都可以直接发送；除最后一项外，无需包含技能名。
-
-| 场景 | 可以这样说 |
+| 学习任务 | 重点训练 |
 | --- | --- |
-| 零基础入门 | 我没有学过机会成本，请用生活例子从头教我，先不要考试。 |
-| 只给提示 | 我卡在这一步了。先给一个方向提示，等我尝试后再继续。题目和我的过程如下：…… |
-| 方法选择 | 我学过因式分解和求根公式。给我几道混合题，不提示用哪种方法，让我先解释怎么选。 |
-| 费曼讲解 | 我来向零基础学生解释边际成本。请根据我的解释追问，并指出概念错误。 |
-| 闭卷检测 | 根据我们刚学的内容出三道无提示新题，建议限时十分钟，等我提交后再评分。我会自行计时。 |
-| 延迟复习 | 帮我复习三天前学的内容。先让我回忆，再用一道新题检查；记录如下：…… |
-| 直接讲解 | 这道题我暂时不练了，请直接给完整解法并说明关键依据。 |
-| 明确调用 | 请使用 $self-study-tutor，帮助我理解这段代码，重点练习如何定位问题。 |
+| 数学 | 识别结构、完成变形、检查条件，并独立选法求解 |
+| 经济学 | 从情境提取变量与假设，选择模型并解释因果关系 |
+| 会计 | 根据业务实质判断账户、确认时点与报表影响 |
+| 论证与阅读 | 区分材料和推断，让证据支持恰当范围的主张 |
+| 语言 | 根据沟通对象、目的和语境，独立组织表达 |
+| 编程与操作 | 根据要求形成方案，实际执行、调试并检查结果 |
 
-### 跨学科应用与教学示例
+### 可以这样开始学
 
-共用的是诊断、必要支持、逐步交接和独立验证；任务与评分根据学科改变。参考文件按任务读取，数学示例不作为所有课程的固定流程。
+> 我想学这一章，请一个知识点一个知识点地教，根据我的回答决定下一步。
 
-| 任务 | 教学重点 | 实际检查 |
-| --- | --- | --- |
-| 数学 | 从隐藏关系识别方法，检查条件并完成变形 | 无方法标签的新题中自行选法并求解 |
-| 经济学或模型分析 | 明确变量、假设和因果解释 | 换情境后选择模型，说明哪些结论仍成立 |
-| 论证与阅读 | 区分证据、推断和主张范围 | 用新材料写出有依据的判断，接受不同合理立场 |
-| 语言 | 根据对象、目的和场景形成表达 | 新语境中的实际表达，不只背示范句 |
-| 编程与操作 | 根据要求组织步骤并验证结果 | 独立实施与边界检查，不只报出方法名称 |
+> 我记得公式，但题目一变就不知道怎么用。请教我应该观察什么，再让我自己判断。
 
-下面是编写的教学片段，不是真实用户结果：
+> 我会画供需图，但文字题总判断错。请根据我的解释找出卡点。
 
-> 学生：我会解二次方程，但 `4^x - 5·2^x + 4 = 0` 不知道怎么起步。
->
-> 导师：先找两个指数项的关系。你能把 `4^x` 写成只含底数 2 的形式吗？
->
-> 若学生会改写：连接到同一个量的平方和一次项，再让学生完成替换。
->
-> 若学生不会指数运算：先补这一处前置，不继续追问换元。
->
-> 关键关系由导师指出后的成功，记录为受助完成，之后再用混合新题检查选法。
+> 帮我检查这段论证的证据是否足够，让我自己修改关键部分。
 
-在论证任务中，同样的诊断原则可能表现为：学生用个人经历证明“所有大课都应取消”时，导师帮助比较主张范围与证据范围，让学生选择收窄主张或补证据，不强迫采用固定观点。更多分支见 [跨学科教学示例](references/teaching-examples.md)。
+> 我看得懂英语，但说不出来。请用具体情境带我练表达。
 
-### 可选的调用配置
+### 当前验证
 
-不要求修改全局 `AGENTS.md`。先分别检查显式调用与自然语言触发；宿主提供读取轨迹时，以实际加载文件为证据，不以模型自称“已使用”作证。若显式调用正常但自然请求经常未触发，可在宿主支持的项目指导文件中加入一句：
-
-> 对明确的学习请求，使用已安装的 self-study-tutor；具体教学遵循该技能，并尊重用户直接要答案或退出的请求。
-
-只添加调用规则，不复制整套教学内容。宿主不支持这类文件时采用其自己的调用方式。
-
-### 检测与能力边界
-
-讲得流畅、重复刚看过的解法或提示后做对，都不能单独证明独立掌握。考试中主动询问“这个方向对吗”也属于索要提示：导师会先说明该题转为有帮助的练习，再提供反馈。
-
-首轮[行为检查记录](evals/results/2026-11-09/REPORT.md)覆盖 12 类场景，并在其中两类做四组对照。它检查教学行为，没有验证真人学习增益。
-
-这是教学工作流，不是监考系统，也不保证提高成绩。文件读取、计时、跨会话记录和提醒取决于宿主能力与授权；复习建议不等于提醒已创建。新对话如果缺少历史，请提供之前的学习摘要。
-
-### 文件说明
-
-| 文件 | 用途 |
-| --- | --- |
-| [SKILL.md](SKILL.md) | 启用范围、模式选择、教学循环与掌握证据 |
-| [references/teaching-flow.md](references/teaching-flow.md) | 能力单元、诊断修复和依据学习证据恢复 |
-| [references/method-selection.md](references/method-selection.md) | 概念、方法、模型与证据选择，表示转换与迁移 |
-| [references/teaching-examples.md](references/teaching-examples.md) | 数学、经济学、论证与语言的原创分支示例 |
-| [references/assessment-and-review.md](references/assessment-and-review.md) | 分任务评价、独立检测、延迟复习与可选记录 |
-| [evals/README.md](evals/README.md) | 开发者对照流程与案例；不作为运行时教学资料 |
-| [agents/openai.yaml](agents/openai.yaml) | 支持该格式的宿主使用的可选界面元数据 |
-
----
+已完成覆盖六类学科的首轮行为检查，并在两个场景比较了默认模型、简短提示、旧版与改版。检查记录见[评测报告](evals/results/2026-11-09/REPORT.md)；目前尚未证明稳定优于旧版或简短提示，也未验证真人学习增益。
 
 ## English
 
-### What this is
+Self-Study Tutor is an AI skill for independent learning. It focuses on two goals: **teaching one meaningful unit at a time, and helping you recognize which concepts or methods to use in an unfamiliar task.**
 
-Self-Study Tutor is a reusable AI tutoring skill for concept learning, guided practice, independent assessment, learner explanations, transfer practice, and delayed review.
+If you understand explanations but struggle to begin on your own, the tutor works on that gap: what relationships to notice, how to represent the task, why an approach fits, and when its conditions require a different choice.
 
-It explains and demonstrates when prerequisites are missing, then gradually reduces assistance. It distinguishes understanding an explanation, completing a task with help, solving it independently, retaining it over time, and transferring it to a new situation. You can request a direct answer, a full explanation, a mode change, or an end to the session at any time.
+### Get started
 
-**There is no fixed teaching language.** The tutor follows your preferred language or the language of the conversation. The instruction files are currently in Chinese and the interface metadata is in English; neither determines the language of tutoring responses.
-
-### Teaching design
-
-**Practice why a method comes to mind, then work toward solving problems without hints.** The skill connects each teaching choice to a practical learner need:
-
-| Advantage | How it works | Value for the learner |
-| --- | --- | --- |
-| Progress by observable capability | Starts with a short route, skips demonstrated skills, and repairs a missing prerequisite locally. | Works on one meaningful obstacle at a time, rather than explaining the whole chapter before an attempt. |
-| Learn to choose a method | Connects problem clues to applicable conditions and selection reasons, compares valid approaches, and discusses where a method stops working. | Practices how to start an unfamiliar problem, beyond executing a method already named by the tutor. |
-| Support gradually fades | Explains and demonstrates when foundations are missing; offers direction, clues, partial steps, or a full solution as needed, then returns the thinking to the learner. | Gives beginners a usable starting point and opportunities to check their ability as assistance is reduced. |
-| Mastery claims require evidence | Separates assisted completion, independent performance, retention, and transfer; checks new problems instead of treating “I understand” or a repeated answer as mastery. | Makes it clearer what you can do alone, what still depends on help, and what has not been assessed. |
-| Practice explanation, transfer, and retention | Combines closed-book explanations, counterexamples, changed conditions, mixed problems without method labels, and delayed checks. | Tests whether knowledge survives new wording, new situations, and time away, informing what to review next. |
-| Feedback identifies the obstacle | Locates the first substantive error, preserves correct work, and distinguishes conceptual, reading, method-selection, reasoning, calculation, and expression issues. | Clarifies whether to revisit a concept, practice choosing an approach, or fix execution. |
-| Flexible pacing and learner control | Adjusts depth to performance, moves quickly through familiar content, and accepts requests for direct answers, full explanations, mode changes, or stopping. | Focuses time on the current need without requiring a full teaching checklist every session. |
-| Lightweight and reusable | Delivers the workflow as skill files without extra runtimes; does not bind teaching to one subject or language, and supports installation and learning-request matching through compatible hosts. | Reuses the same learning principles across topics and projects with less repeated prompt setup. |
-
-These features describe the skill’s design and intended value, not a demonstrated improvement in grades. Evaluate its usefulness through independent performance after help is removed and through delayed checks.
-
-### Installation
-
-These instructions target Codex environments that support local skills. For other Agent Skills-compatible tools, use their installer or skill directory. The tutoring workflow itself requires no Python, Node.js, or additional dependencies.
-
-#### Option 1: Ask Codex to install it
-
-In a Codex environment with the built-in `skill-installer`, send:
+Copy this URL to your agent, ask it to read and use the skill, and tell it what you want to learn:
 
 ```text
-Use $skill-installer to install the skill from this GitHub repository:
 https://github.com/jiangzengyuang-jisoo/self-study-tutor
-
-SKILL.md is at the repository root. Use repository path . and install it as self-study-tutor.
-Keep the references and agents directories.
 ```
 
-The `.` means the repository root, not a nested directory with the same name. The installer selects a location it supports. If an installation already exists, inspect it before replacing it so local changes are preserved.
+Your agent handles reading and using the skill through the capabilities its environment supports.
 
-#### Option 2: Install manually
+### How it teaches
 
-Current Codex documentation lists `~/.agents/skills/` for personal skills. The commands below require Git and a destination that does not already exist. [Skill locations](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
+- **Progress one useful unit at a time.** Start with a short route, move quickly through demonstrated skills, and repair missing prerequisites where needed.
+- **Learn how an approach comes to mind.** Connect visible clues, hidden relationships, conditions, and the first step. Practise selecting and comparing approaches through changed representations, contrasting conditions, and mixed tasks.
+- **Adapt to the reason for an error.** Distinguish missing concepts, missed approaches, difficulty reorganizing a task, and execution mistakes; choose feedback accordingly.
+- **Provide support, then hand back responsibility.** Explain unfamiliar ideas and demonstrate when needed, then gradually let you make the key decisions and complete the task.
+- **Use performance as evidence.** Distinguish understanding an explanation, assisted completion, independent performance, and retention. Use recall, learner explanations, and new tasks to guide review.
 
-**macOS / Linux:**
+You can request a hint, a full answer, a skip, or an end to the session at any time. The tutor follows your preferred language and uses evidence from the current conversation or accessible learning records when continuing.
 
-```bash
-mkdir -p "$HOME/.agents/skills"
-git clone https://github.com/jiangzengyuang-jisoo/self-study-tutor.git "$HOME/.agents/skills/self-study-tutor"
-```
+### Across subjects
 
-**Windows PowerShell:**
+Tasks and assessment criteria adapt to the subject:
 
-```powershell
-$skillRoot = Join-Path $HOME '.agents\skills'
-New-Item -ItemType Directory -Force -Path $skillRoot | Out-Null
-git clone https://github.com/jiangzengyuang-jisoo/self-study-tutor.git (Join-Path $skillRoot 'self-study-tutor')
-```
-
-**Without Git:** Select **Code → Download ZIP** on the repository page. Extract it, rename the folder containing `SKILL.md` to `self-study-tutor`, and place it in the skill directory above. Avoid an extra nested folder.
-
-**For one project only:** Place the same complete folder at `.agents/skills/self-study-tutor/` inside that project. Usually choose either personal or project installation.
-
-Some versions or bundled installers use `$CODEX_HOME/skills`, defaulting to `~/.codex/skills`. Follow the location supported by your environment. An installation that is already discovered does not need to be moved or duplicated.
-
-Keep the root `SKILL.md` and the complete `references/` and `agents/` directories. `README.md` and `evals/` are documentation and developer evaluation assets; they are not required tutoring context.
-
-### Automatic invocation
-
-Once the skill is installed and discovered, make an ordinary learning request, such as “Teach me derivatives from scratch” or “Test whether I understand this.” Codex selects skills by matching the request to their descriptions. [Implicit invocation](https://learn.chatgpt.com/docs/build-skills#how-chatgpt-and-codex-use-skills)
-
-This repository does not set `allow_implicit_invocation: false`, so it retains the default `true`. No additional switch is required to allow automatic selection. [Invocation policy](https://learn.chatgpt.com/docs/build-skills#optional-metadata)
-
-- **Intended matches:** Learning concepts, guided practice, explaining your understanding, checking mastery, review, and transfer practice.
-- **No forced tutoring:** Simple factual lookups, requests for answers, study-material creation, or delegated tasks. When the user explicitly chooses another teaching workflow, follow it without layering this skill’s teaching workflow on top. Supporting skills for file reading, calculation, or visualization may be combined as needed; use this tutoring skill only when the current request includes a learning goal.
-- **Automatic selection is not guaranteed on every request.** It depends on discovery, enablement, and task interpretation. It does not mean background execution or automatic reminders.
-
-If it does not activate, check whether `self-study-tutor` appears in the available skills, or ask the assistant to check availability. Refresh the skill list or check in a new session if a new installation does not appear. To select it explicitly, send:
-
-```text
-Use $self-study-tutor to teach me derivatives from scratch. Explain the concept first, then let me try.
-```
-
-This is a chat instruction, not a terminal command. Other tools may use different skill-selection syntax.
-
-### Examples
-
-Send these requests directly. Only the last example explicitly names the skill.
-
-| Situation | Example request |
+| Learning task | Focus |
 | --- | --- |
-| Starting from zero | I have never studied opportunity cost. Teach me with everyday examples; do not test me yet. |
-| Getting a hint | I am stuck here. Give me one directional hint and wait for my attempt. Here is the problem and my work: … |
-| Choosing a method | I know factorization and the quadratic formula. Give me mixed problems without naming the method, and let me explain my choice first. |
-| Explaining to a beginner | I will explain marginal cost to a beginner. Ask follow-up questions based on my explanation and point out conceptual errors. |
-| Independent assessment | Give me three new problems on what we just studied, without hints. Suggest a ten-minute limit and grade after I submit. I will time myself. |
-| Delayed review | Help me review what I studied three days ago. Start with recall, then check with a new problem. Here are my notes: … |
-| Direct explanation | I do not want to practise this problem right now. Give me the full solution and explain the key decisions. |
-| Explicit invocation | Use $self-study-tutor to help me understand this code, focusing on how to locate a problem. |
+| Mathematics | Recognize structure, transform expressions, check conditions, and choose and execute a method |
+| Economics | Identify variables and assumptions, select a model, and explain causal relationships |
+| Accounting | Interpret the transaction, recognition timing, accounts, and financial statement effects |
+| Argument and reading | Separate evidence from inference and match the scope of a claim to its support |
+| Language | Produce appropriate expressions for an audience, purpose, and context |
+| Programming and procedures | Develop an approach, implement it, debug, and verify the result |
 
-### Applying the workflow across subjects
+### Example requests
 
-Diagnosis, useful support, gradual handoff, and independent checks are shared. Tasks and criteria vary by subject; references load when relevant rather than making every lesson follow a mathematics example.
+> Teach me this chapter one useful unit at a time, and choose the next step based on my answers.
 
-| Task | Teaching focus | Evidence to check |
-| --- | --- | --- |
-| Mathematics | Hidden structure, applicable conditions, and transformations | Choosing and executing a valid method on an unlabeled new problem |
-| Economics or model-based analysis | Variables, assumptions, and causal explanations | Selecting a model and checking conclusions in a changed situation |
-| Argument and reading | Evidence, inference, and the scope of a claim | Supporting a judgment using new material; different defensible views are valid |
-| Language | Audience, intent, context, and actual expression | Producing an appropriate response in a new situation |
-| Programming and procedures | Requirements, organized steps, and verification | Implementing a solution and checking boundaries, beyond naming an approach |
+> I remember the formula but cannot recognize when to use it in a changed problem. Help me learn what to notice, then let me decide.
 
-An authored illustration, not a real learner outcome: a student can solve quadratic equations but cannot start `4^x - 5·2^x + 4 = 0`. The tutor asks about the relationship between the exponential terms. If the student can rewrite them, the tutor connects the common quantity to quadratic structure; if exponent rules are missing, the tutor repairs that prerequisite first. Success after the tutor reveals the structure is assisted, and later mixed problems must check independent selection.
+> I can draw supply and demand curves but misread word problems. Use my explanation to find where I go wrong.
 
-In an argument task, a student using one classroom experience to justify abolishing all large lectures needs help matching the scope of evidence to the claim, rather than a prescribed opinion. See [branching examples](references/teaching-examples.md).
+> Help me check whether this paragraph has enough evidence, then let me revise the key part.
 
-### Optional invocation guidance
+> I understand English when I read it but struggle to speak. Help me practise with concrete situations.
 
-A global `AGENTS.md` edit is not required. Check explicit invocation and natural-language triggering separately. Where the host exposes read traces, use actual file loading as evidence, rather than the model saying it used the skill. If explicit invocation works but natural requests often miss the skill, add a short routing instruction to a project guidance file supported by that host:
+### Current evidence
 
-> Use the installed self-study-tutor for clear learning requests. Follow its teaching workflow and respect requests for direct answers or leaving tutoring.
+Initial behavioral checks cover six subject areas, with default-model, short-prompt, previous-skill, and revised-skill comparisons on two scenarios. See the [evaluation report](evals/results/2026-11-09/REPORT.md). Stable superiority over the previous skill or a short prompt, and improvements in human learning, have not yet been established.
 
-Keep the instruction to routing; do not duplicate the teaching rules. Use the host's own invocation mechanism when guidance files are unsupported.
+## 设计参考 · Design references
 
-### Assessment and capability boundaries
+本项目借鉴以下流程设计，教学规则与示例按本项目目标编写。The following projects informed the workflow; the teaching rules and examples are written for this project.
 
-A fluent explanation, immediate repetition of a demonstrated solution, or success after a hint does not by itself establish independent mastery. Asking “Is this the right approach?” during an assessment also requests a hint: the tutor identifies that item as assisted practice before providing feedback.
-
-The initial [behavioral check report](evals/results/2026-11-09/REPORT.md) covers 12 scenario intents, with four-condition comparisons on two of them. It checks tutoring behavior, not human learning gains.
-
-This is a teaching workflow, not a proctoring system or a guarantee of improved grades. File access, timing, persistent records, and reminders depend on host capabilities and authorization. A review suggestion is not a scheduled reminder. Provide a previous learning summary when a new conversation lacks that context.
-
-### Files
-
-| File | Purpose |
-| --- | --- |
-| [SKILL.md](SKILL.md) | Scope, mode selection, tutoring loop, and mastery evidence |
-| [references/teaching-flow.md](references/teaching-flow.md) | Capability units, targeted repair, and evidence-based continuation |
-| [references/method-selection.md](references/method-selection.md) | Concept, method, model, and evidence selection; representation and transfer |
-| [references/teaching-examples.md](references/teaching-examples.md) | Authored branching examples in mathematics, economics, argument, and language |
-| [references/assessment-and-review.md](references/assessment-and-review.md) | Task-specific criteria, independent checks, delayed review, and records |
-| [evals/README.md](evals/README.md) | Developer comparisons and cases, excluded from runtime tutoring |
-| [agents/openai.yaml](agents/openai.yaml) | Optional interface metadata for supporting hosts |
-
-### Design references · 设计参考
-
-The workflow and examples here are written for this project. The following projects informed design choices; their inclusion does not establish learning gains for this skill. 本项目借鉴以下设计思路，规则与示例按本项目目标重新编写；这些参考不构成本技能效果的验证。
-
-| Reference | Design idea |
-| --- | --- |
-| [Think Before Code](https://github.com/Far-200/think-before-code) | Extract structure, boundaries, and transfer rules from solved problems |
-| [Course Creator](https://github.com/ShivamGupta42/course-creator) | Describe selection cues, competing approaches, and practice explicitly |
-| [LearnLM-Inspired Tutor](https://github.com/unix2dos/skills/tree/main/learnlm-inspired-tutor) | Organize prerequisites and adapt the next teaching step |
-| [Book Tutor](https://github.com/xixiaofinland/agent-skills/tree/main/skills/book-tutor) | Connect course materials and prior progress to the current lesson |
+- [Think Before Code](https://github.com/Far-200/think-before-code) — 结构提取与迁移 / structure and transfer.
+- [Course Creator](https://github.com/ShivamGupta42/course-creator) — 方法线索与选择练习 / selection cues and practice.
+- [LearnLM-Inspired Tutor](https://github.com/unix2dos/skills/tree/main/learnlm-inspired-tutor) — 先修关系与教学调整 / prerequisites and adaptive teaching.
+- [Book Tutor](https://github.com/xixiaofinland/agent-skills/tree/main/skills/book-tutor) — 课程材料与进度衔接 / course materials and continuity.
