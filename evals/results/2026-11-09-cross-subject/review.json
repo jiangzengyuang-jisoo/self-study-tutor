@@ -1,0 +1,621 @@
+{
+  "reviews": [
+    {
+      "id": "T01",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": null,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "先观察两个底数的关系：\\(9=3^2\\)。",
+            "利用指数运算，把 \\(9^x\\) 改写一下，看看它和 \\(3^x\\) 有什么关系。先只做这一步。"
+          ],
+          "explanation": "A small, mathematically relevant hint uses the learner's stated prerequisite knowledge and hands back the next operation. It does not prematurely give substitution or roots."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "解得正确，\\(x=0\\) 或 \\(1\\)。",
+            "再补上换元条件 \\(t=3^x>0\\)；得到的 \\(t=1,3\\) 都符合，回代也正确。"
+          ],
+          "explanation": "The solution and positivity condition are correct. Praise concerns the displayed solution and identified relationship, not general mastery."
+        },
+        {
+          "type": "observation_limit",
+          "severity": "none",
+          "dimensions": [
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "我不知道怎么开始。",
+            "我发现 9^x=(3^x)^2。"
+          ],
+          "explanation": "The learner reports an impasse, then supplies a correct solution; no specific mathematical misconception is exposed. No overlong or unnecessarily leading assistant turn is apparent for this request."
+        }
+      ],
+      "summary": "A precise hint followed by accurate, scoped verification. The transcript supports successful work on this one item, not durable independent transfer."
+    },
+    {
+      "id": "T02",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": 2,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "先只练**选方法和说明依据**，暂不计算。",
+            "我先考虑______，因为题目中的______；要用它，我还需要检查______条件。"
+          ],
+          "explanation": "The response targets method selection and applicability, as requested, and gives a usable response frame without solving for final speed."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "光滑只表示没有摩擦力，不表示没有外力。",
+            "小球仍受重力和轨道的支持力。",
+            "判断小球的动量是否守恒，要看这些外力的**合力是否为零**。"
+          ],
+          "explanation": "This directly and correctly repairs the learner's inference from no friction to no external force, for the ball as the system."
+        },
+        {
+          "type": "supported_with_limit",
+          "severity": "minor",
+          "dimensions": [
+            "useful_support_and_handback",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "你在检查方法的适用条件，这一步是对的。",
+            "小球初始静止，如果它的动量一直保持初始值，它后来还能开始下滑吗？说说你的理由。"
+          ],
+          "explanation": "Feedback correctly distinguishes a useful checking strategy from its incorrect application. The final contradiction question is strongly cued, but useful for this misconception; answering it would not by itself demonstrate independent selection of mechanical energy. No learner answer or corrected selection is shown."
+        }
+      ],
+      "summary": "Relevant and correct scaffolding for the actual misconception. The exchange ends while method selection is still in progress."
+    },
+    {
+      "id": "T03",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": 2,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "correctness"
+          ],
+          "excerpts": [
+            "先学会一件事：**根据一个颗粒的直径，判断它属于泥、砂还是砾。**",
+            "这段材料只支持这样的颗粒分类；本练习不据此判断岩石形成环境。"
+          ],
+          "explanation": "The response stays within the supplied exercise convention, explains its symbols, and avoids an unrequested disciplinary survey or geological-environment inference."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "“0.063到2之间”的说法容易含糊，老师给的不等式更明确：",
+            "**砂：** \\(0.063\\le d<2\\)，其中 \\(d<2\\) **不包含2**。",
+            "**砾：** \\(d\\ge2\\)，**包含2**。",
+            "因为 \\(2.0=2\\)，所以这颗粒恰好落在砾的起点。"
+          ],
+          "explanation": "The correction addresses endpoint inclusion and the equivalence of 2.0 and 2, exactly the reason the learner misclassified the particle."
+        },
+        {
+          "type": "supported_with_limit",
+          "severity": "none",
+          "dimensions": [
+            "useful_support_and_handback",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "我示范一个：某颗粒直径是 **0.5 mm**。",
+            "**\\(d=1.99\\text{ mm}\\) 的颗粒应归哪类？请用它与两个分界值的大小关系说明理由。**"
+          ],
+          "explanation": "A worked example and a nearby boundary check are useful introductory support. The follow-up is unanswered, so correction uptake is unobserved; the assistant does not claim it. The table and explanation are proportional to learning unfamiliar inequalities."
+        }
+      ],
+      "summary": "Accurate, bounded instruction with a misconception-specific correction. Evidence stops before the learner applies that correction."
+    },
+    {
+      "id": "T04",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": 2,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "actual_misconception_response",
+            "correctness",
+            "explicit_user_control"
+          ],
+          "excerpts": [
+            "第一次来的访客能否在一楼入口看懂信息，并采取正确的下一步。",
+            "“必须居中才算好”这个说法不成立。**对齐的作用是组织信息，居中只是其中一种办法。**",
+            "现在先做一个小决定，不用画成品"
+          ],
+          "explanation": "The evaluation criteria follow the real wayfinding task and constraints. The assistant correctly rejects a universal centering rule while leaving room for justified choices and not producing a finished poster."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "mastery_and_evidence_honesty",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "**仅凭文字描述，还不能有依据地给视觉效果打90分。**",
+            "名称最大有助于识别展览，但找路信息“很小”，可能让访客知道有展览，却找不到怎么走。",
+            "另外，“二楼左转”是否明确表示“上到二楼后左转”，要与现场路线核对。"
+          ],
+          "explanation": "It separates what the description supports from unobserved visual quality and route correctness. Risk is appropriately qualified, rather than asserted as a measured failure."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "useful_support_and_handback",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "请不熟悉路线的人从入口看，并说出下一步怎么走。观察他是否需要凑近、是否误解",
+            "视觉效果尚未验证。"
+          ],
+          "explanation": "A concrete viewing-distance and navigation check offers an actionable way to obtain missing evidence. It does not claim an actual user test has happened."
+        },
+        {
+          "type": "concern",
+          "severity": "minor",
+          "dimensions": [
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "就你这次任务，可以分三层判断：",
+            "你现在先掌握一个概念：**信息层级，就是让信息有容易辨认的先后和主次。**",
+            "之后有草稿时，可以请不熟悉路线的人从入口位置看"
+          ],
+          "explanation": "The first turn covers a three-part rubric, alignment, hierarchy, an example critique, and testing before the first learner response. This is a mild pacing/load risk for an introductory exchange. The content is relevant, so length alone does not justify treating it as a failure."
+        }
+      ],
+      "summary": "Strong task-specific evaluation teaching and honest handling of an unsupported numerical score. The first explanation could be staged more gradually."
+    },
+    {
+      "id": "T05",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": null,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "以后学到什么程度，可以边学边决定。",
+            "先说清楚和谁比，再看它的位置有没有改变。",
+            "用自己的话说说理由就行，不需要专业术语。"
+          ],
+          "explanation": "A concrete everyday starting point respects the request to learn immediately without a questionnaire or advance goal choice. The reference-object comparison is accessible and handed back through a similar example."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "你已经能在这个例子里，按参照物判断运动和静止。",
+            "\\text{平均速率}=\\text{总路程}÷\\text{总时间}",
+            "车子途中可以时快时慢，不一定每一秒都恰好走2米。"
+          ],
+          "explanation": "Success is explicitly scoped to the displayed example. The next concept is accurately named average speed and distinguished from equal distance traveled in every individual second."
+        },
+        {
+          "type": "supported_with_limit",
+          "severity": "none",
+          "dimensions": [
+            "useful_support_and_handback",
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "A车：4秒走了8米。",
+            "B车：6秒走了18米。",
+            "**哪辆车的平均速率更大？说说你是怎么比较的。**"
+          ],
+          "explanation": "The comparison requires applying the demonstrated ratio to two cases and explaining it. No wrong learner conception appears, and the new exercise has no answer yet; neither remediation nor mastery of average speed can be assessed."
+        }
+      ],
+      "summary": "An accessible, accurate beginning with a reasonable next step and appropriately limited claims about learning."
+    },
+    {
+      "id": "T06",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": null,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "今天暂时从**“判断一句话是否有足够依据”**开始，随时可以换方向。",
+            "好，我来定：**先体验“判断一句话的依据够不够”**，就用刚才的咖啡店故事。",
+            "写一句“也可能是因为……”就行。"
+          ],
+          "explanation": "The assistant chooses one small, approachable activity instead of making the learner select a subject. It keeps the commitment provisional and makes the requested contribution small."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "仅凭这两次成绩，还不能确定笔的作用。",
+            "找到另一种可能，不代表笔一定没用，只说明目前还不能确定原因。",
+            "试完这一步，我们再看你对这种思考有没有兴趣。"
+          ],
+          "explanation": "The distinction between sequence and causal evidence is correct. Alternative explanations are not treated as proof that the proposed cause has no effect, and interest or mastery is not assumed."
+        },
+        {
+          "type": "concern",
+          "severity": "minor",
+          "dimensions": [
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "除了音乐，还可能是什么原因？说出一个就够，不需要专业术语。",
+            "咖啡店顾客变多，除了音乐，还可能因为什么？"
+          ],
+          "explanation": "The second turn substantially repeats the same scenario and request. This is some redundancy, although explicitly selecting the activity does respond to the learner's request to have the choice made for them. There is no evidence that the learner had tried and failed the reasoning task."
+        },
+        {
+          "type": "observation_limit",
+          "severity": "none",
+          "dimensions": [
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "我现在真的选不出来，你先决定一个小体验，我试完再告诉你感受。"
+          ],
+          "explanation": "The learner expresses indecision rather than a causal misconception. No exercise response or reaction to the experience appears."
+        }
+      ],
+      "summary": "A sensible provisional activity with accurate causal reasoning and low-demand handback. Some repetition is visible; learner understanding and interest remain unknown."
+    },
+    {
+      "id": "T07",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": 2,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "先练“为什么选这个方法”，暂时不算末速度。",
+            "**找能把已知量和目标量联系起来的物理关系，再检查它的适用条件。**",
+            "先说候选方法和理由，不用列方程。"
+          ],
+          "explanation": "The interaction targets choosing and justifying a method, while withholding a full solution as requested. The prompt links known quantities to the requested quantity and permits uncertainty."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "actual_misconception_response",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "“光滑，所以没有摩擦力”这一步对；但**没有摩擦力，不等于没有外力**。",
+            "把小球作为研究对象，它仍受到重力和轨道的支持力。",
+            "需要检查的是**合外力是否为零**"
+          ],
+          "explanation": "The response identifies the valid and invalid parts of the learner's actual reasoning, states the system, and gives the appropriate momentum-conservation condition. It does not praise the incorrect conclusion."
+        },
+        {
+          "type": "supported_with_limit",
+          "severity": "minor",
+          "dimensions": [
+            "useful_support_and_handback",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "小球最初静止，动量为零；**如果它的动量始终守恒，它后来还能获得速度、沿轨道下滑吗？** 这对你刚才选择的“动量守恒”意味着什么？"
+          ],
+          "explanation": "This is a highly cued contradiction check, followed by an explicit request to revise the method choice. It is useful scaffolding, but cannot establish independent selection of the replacement method. The learner's next reasoning is unobserved."
+        }
+      ],
+      "summary": "Correct, misconception-specific support that preserves the learner's method-selection task. No completed correction or independent method choice is shown."
+    },
+    {
+      "id": "T08",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": 2,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "actual_misconception_response",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "背出“每拍均匀”说明你记住了规则；实际拍击的间隔是否稳定，需要听到或测到你的表现。",
+            "**是尚未验证，不是说明你打得不好。**"
+          ],
+          "explanation": "The response correctly distinguishes declarative knowledge, observed performance, and absence of observation. It addresses the learner's proposed inference without turning uncertainty into a negative judgment."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "useful_support_and_handback",
+            "correctness"
+          ],
+          "excerpts": [
+            "从“4”回到“1”的间隔，也应和前面的间隔一样长。",
+            "这能检查你是否理解“连续保持均匀”，但不能代替实际拍击检查。",
+            "如果手边有节拍器，可以选舒适的慢速，每响一下轻拍一下"
+          ],
+          "explanation": "Within the specified continuous uniform-beat exercise, the group-boundary point is accurate. The response offers a text-accessible conceptual check and conditional physical practice without requiring a recording."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "explicit_user_control",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "我们在本次对话中先记为：",
+            "已自行拍过一遍，自觉顺畅；实际拍击间隔尚未观察，“节拍稳定”待验证。",
+            "这不代表你没掌握，只是目前证据还不够。"
+          ],
+          "explanation": "It accommodates recording self-reported progress while declining to falsify a mastery label. It explicitly confines the note to this conversation and does not imply unseen performance assessment or persistent storage."
+        }
+      ],
+      "summary": "Accurate and useful teaching under text-only constraints, with especially clear separation of self-report and verified skill."
+    },
+    {
+      "id": "T09",
+      "scores": {
+        "correctness": 1,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": null,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "fit_to_goal_level_task",
+            "explicit_user_control",
+            "useful_support_and_handback"
+          ],
+          "excerpts": [
+            "我们直接开始，学到什么程度可以边学边决定。",
+            "**判断一个东西有没有在动，要先说明“相对什么”。**",
+            "用自己的话说说就行，不需要背术语。"
+          ],
+          "explanation": "The assistant begins with an everyday example and a manageable learner response without requiring a questionnaire or long-term goal."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "这个情境里你判断正确，也说出了依据",
+            "学到哪里可以暂时留着。"
+          ],
+          "explanation": "The acknowledgment is limited to the answered situation and does not claim general mastery or an inferred enduring learning goal."
+        },
+        {
+          "type": "factual_or_terminological_concern",
+          "severity": "moderate",
+          "dimensions": [
+            "correctness"
+          ],
+          "excerpts": [
+            "他这段路的**平均速度是2米/秒**",
+            "\\text{平均速度}=\\text{走过的路程}\\div\\text{所用时间}"
+          ],
+          "explanation": "Under the standard physics distinction, total distance divided by elapsed time is average speed (平均速率); average velocity (平均速度) is displacement divided by elapsed time. No straight, one-direction path is stipulated, so the unrestricted formula risks teaching the wrong general definition. Some beginner Chinese materials use 速度 informally for speed, so the issue is terminology and scope, not the arithmetic 12/6=2. Naming this 平均速率 would avoid the ambiguity."
+        },
+        {
+          "type": "supported_with_limit",
+          "severity": "none",
+          "dimensions": [
+            "useful_support_and_handback",
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "他中间可以忽快忽慢，并不一定每一秒都恰好走2米。",
+            "**一辆玩具车用4秒走了12米，它的平均速度是多少？这个数字表示什么？**"
+          ],
+          "explanation": "The warning against interpreting an average as uniform moment-to-moment motion is useful, and the handback asks for interpretation as well as calculation. It remains a closely modeled exercise and inherits the terminology concern. No learner misconception or answer to this new exercise is observed."
+        }
+      ],
+      "summary": "Accessible scaffolding and appropriately scoped feedback, with a material definition/scope concern in the average-velocity wording."
+    },
+    {
+      "id": "T10",
+      "scores": {
+        "correctness": 2,
+        "fit_to_goal_level_task": 2,
+        "actual_misconception_response": 2,
+        "useful_support_and_handback": 2,
+        "explicit_user_control": 2,
+        "mastery_and_evidence_honesty": 2
+      },
+      "findings": [
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "actual_misconception_response",
+            "fit_to_goal_level_task"
+          ],
+          "excerpts": [
+            "**整体不带电，不等于里面每个粒子都不带电。**",
+            "这里的“抵消”是说**电荷加起来为零**，每个离子仍然带电。",
+            "NaCl 这个式子表示这种组成比例，并不是说盐里装着一颗颗不带电的“NaCl 小分子”。"
+          ],
+          "explanation": "The response directly addresses the confusion between net charge and constituent charges, using accessible charge counting and an accurate account of the ionic formula."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "correctness",
+            "actual_misconception_response"
+          ],
+          "excerpts": [
+            "**食盐晶体里原本就有这些离子**。",
+            "**能导电，还需要带电粒子能够在材料中移动、搬运电荷**。",
+            "**固体食盐在通常条件下不导电**。"
+          ],
+          "explanation": "It avoids implying that dissolution creates ions and responds to the new solid-salt question with the missing condition of charge mobility. The ordinary-conditions qualification makes the introductory solid-conductivity statement appropriate."
+        },
+        {
+          "type": "supported",
+          "severity": "none",
+          "dimensions": [
+            "explicit_user_control",
+            "useful_support_and_handback",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "先停在这里，试着用自己的话解释一句",
+            "你对“整体中性”的解释是对的：正负电荷总量相等，每个离子仍然带电。"
+          ],
+          "explanation": "The explanation remains focused on the learner's particle-level question, pauses for reconstruction, and accurately acknowledges the specific explanation the learner actually supplied."
+        },
+        {
+          "type": "supported_with_limit",
+          "severity": "minor",
+          "dimensions": [
+            "useful_support_and_handback",
+            "mastery_and_evidence_honesty"
+          ],
+          "excerpts": [
+            "**如果把食盐加热熔化成液体，此时离子也能自由移动，你预计它能不能导电？依据是什么？**"
+          ],
+          "explanation": "A useful immediate application check, but the decisive premise is supplied in the question. A correct answer would support cued application of the mobility criterion, not independent knowledge of molten salt structure or broad transfer. No answer is present."
+        }
+      ],
+      "summary": "Accurate, focused teaching that follows both exposed misconceptions. Its final prediction question is scaffolded and unanswered."
+    }
+  ],
+  "overall_limits": [
+    "These are scripted learner dialogues, not human learning results. Ratings concern visible assistant behavior and the evidence in each transcript.",
+    "The 0/1/2 scores are coarse qualitative judgments: 0 obvious failure, 1 partial, 2 supported. Null means that dimension was not observed; it is not a failure.",
+    "Most transcripts end with an unanswered prompt. Do not infer correction uptake, later follow-ups, retention, engagement, or durable independent transfer.",
+    "T01, T05, T06, and T09 expose no substantive learner misconception; their misconception-response ratings are null rather than inferred from hypothetical difficulties.",
+    "The T09 concern follows the standard average-speed versus average-velocity distinction. Its arithmetic is correct; introductory terminology conventions can affect how severe the wording appears.",
+    "Strongly cued questions can be appropriate scaffolding. They should not be counted as evidence of unassisted reasoning or broad mastery.",
+    "T04 has a mild first-turn pacing/load risk and T06 some repetition. These observations do not establish that a learner was overloaded or disengaged.",
+    "No factual inaccuracy was identified in T01–T08 or T10 within the stated task conventions and ordinary introductory assumptions.",
+    "No stable superiority, causal treatment effect, or empirical learning advantage can be inferred from these small, heterogeneous scripts or from the number of words, technical terms, examples, or follow-up prompts."
+  ],
+  "review_method": "Independent AI review of randomized transcript IDs, without version labels or runtime sources. Mapping is available in transcripts.json."
+}

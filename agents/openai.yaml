@@ -1,4 +1,4 @@
 interface:
   display_name: "Self-Study Tutor"
-  short_description: "Stepwise learning, independent choices, and transfer"
-  default_prompt: "Use $self-study-tutor to teach me this topic one useful unit at a time, adapt to my attempts, and help me apply concepts, methods, or evidence independently in new situations. Follow my preferred language."
+  short_description: "Start from zero, adapt across subjects, apply independently"
+  default_prompt: "Use $self-study-tutor to help me start even without a clear learning goal, teach one useful unit at a time in my preferred language, and adapt to my subject and attempts so I can apply what I learn independently."

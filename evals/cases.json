@@ -1,12 +1,15 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "purpose": "开发者使用的多轮教学行为案例；不是运行时教学资料，也不是学习效果实验结果。",
   "visibility": "只把 tutor_visible 中当前轮的 user 文本发送给受测导师；reviewer_only、后续消息、标签和评审说明对导师隐藏。",
   "cases": [
     {
       "id": "math-01-first-unit",
       "domain": "mathematics",
-      "coverage": ["unit_progression", "diagnosis"],
+      "coverage": [
+        "unit_progression",
+        "diagnosis"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "我会解一元一次方程，也知道函数是什么，但完全没学过导数。请带我学导数，一个知识点一个知识点来，今天有二十分钟。",
@@ -36,12 +39,19 @@
         "independence_notes": [
           "这是支持与推进方式检查，不要求初次解释后立即做无提示考试。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "novice"
     },
     {
       "id": "math-02-chain-reason",
       "domain": "mathematics",
-      "coverage": ["diagnosis", "transfer"],
+      "coverage": [
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "y=(3x+4)^5，我写 y'=5(3x+4)^4。我觉得里面的 3x+4 已经保留了，所以不用再乘 3。请帮我弄清我想错在哪里。",
@@ -71,12 +81,19 @@
         "independence_notes": [
           "后续固定消息是行为测试输入，不是真实学生掌握证据；刚讲完链式法则也提供了方法线索。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "math-03-hidden-quadratic",
       "domain": "mathematics",
-      "coverage": ["diagnosis", "transfer"],
+      "coverage": [
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "我会指数运算和解二次方程，但 9^x-4·3^x+3=0 我不知道怎么开始。先别把解法全告诉我，给我一个能继续观察的小提示。",
@@ -106,12 +123,20 @@
         "independence_notes": [
           "题目前的知识自述和导师提示都可能提示方法；只能记录实际帮助后完成了哪些步骤。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "math-04-mixed-choice",
       "domain": "mathematics",
-      "coverage": ["unlabeled_selection", "transfer", "user_control"],
+      "coverage": [
+        "unlabeled_selection",
+        "transfer",
+        "user_control"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "我已经学过积分的换元法和分部积分，也会基础积分。请出一个三题短测，检查我能否自己选方法。不要标方法名称，不给选项；先让我写选择依据和第一步，暂时不要公布答案。",
@@ -142,12 +167,19 @@
         "independence_notes": [
           "已告知两个已学方法的范围会限制候选集合，因此证据范围只覆盖该短测；没有学生作答就没有选法结果。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "practiced"
     },
     {
       "id": "economics-01-shift-or-movement",
       "domain": "economics",
-      "coverage": ["diagnosis", "transfer"],
+      "coverage": [
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "在一个练习市场里，其他条件不变，只是咖啡自身价格从 20 升到 25。我写‘需求减少，需求曲线左移’。我知道曲线怎么画，就是题目换成文字时总判断错。请教我怎么判断。",
@@ -177,12 +209,20 @@
         "independence_notes": [
           "该题是已提供错误的修复；后续对比受刚刚教学影响，不属于延迟迁移。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative",
+        "mechanistic_explanation"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "economics-02-quota-rent",
       "domain": "economics",
-      "coverage": ["diagnosis", "transfer"],
+      "coverage": [
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "这是一道课堂的竞争市场题：逆需求 P=100-2Q，逆供给也就是边际成本 MC=20+Q。规定最多生产 20 单位；每生产一单位需要一张可交易牌照，总共 20 张，假设没有其他交易成本。我会算消费者价格，但不知道牌照租金该套哪个公式。我写总租金=(100-2×20)×20=1200，这样对吗？",
@@ -208,12 +248,20 @@
         "independence_notes": [
           "题干本来指定牌照租金目标，不能据此声称测到了无章节提示的跨主题选法。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative",
+        "mechanistic_explanation"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "accounting-01-accrued-interest",
       "domain": "accounting",
-      "coverage": ["diagnosis", "unit_progression"],
+      "coverage": [
+        "diagnosis",
+        "unit_progression"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "借款人于 20X1 年 11 月 1 日借入 12000，年利率 6%，本金和利息明年才付。课堂采用按月计息。12 月 31 日调整分录，我算利息 120，写 Debit Notes Payable 120，Credit Interest Payable 120。金额应该对了，为什么借方科目不对？",
@@ -239,12 +287,20 @@
         "independence_notes": [
           "金额已由学生提供，正确解释科目不能自动证明其他应计项目均已掌握。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "accounting-02-continue-unearned",
       "domain": "accounting",
-      "coverage": ["continuity", "unit_progression", "diagnosis"],
+      "coverage": [
+        "continuity",
+        "unit_progression",
+        "diagnosis"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "继续学调整分录。这是上次的记录：我已独立做对两道应计利息题；收到钱但还没履约的情形还没练。今天看这个：公司提前收了 6000 服务费，先记作 Unearned Revenue；期末服务已经完成三分之一。我觉得期末没再收钱，所以不用确认 Revenue。我想知道该怎么判断。",
@@ -275,12 +331,19 @@
         "independence_notes": [
           "本题解释后的认同不是无提示执行；延迟保持未测。"
         ]
-      }
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "argumentation-01-causal-claim",
       "domain": "argumentation",
-      "coverage": ["diagnosis", "transfer"],
+      "coverage": [
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "这是虚构的写作练习材料：一个学校发现，自愿参加志愿活动的学生平均成绩更高。我据此写‘学校应强制所有学生参加志愿活动，因为这一定会提高每个人的成绩’。我以前学过证据和结论，但换个话题就不知道怎么检查论证。请帮我找最关键的一步。",
@@ -311,12 +374,20 @@
         "independence_notes": [
           "固定后续消息是脚本化修正，不证明学生在未见情境下已自主迁移。"
         ]
-      }
+      },
+      "task_families": [
+        "textual_argument"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "language-01-tense-context",
       "domain": "language",
-      "coverage": ["unit_progression", "diagnosis", "transfer"],
+      "coverage": [
+        "unit_progression",
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "请用中文带我理解 I lived in Hong Kong for two years 和 I have lived in Hong Kong for two years 的区别。我知道过去式和过去分词怎么变，但不理解为什么有 for two years 还可以用不同的时态。一次先讲一个关键区别。",
@@ -347,12 +418,19 @@
         "independence_notes": [
           "已给出两种句式的对比有提示作用；此检查主要针对条件辨别和教学准确性。"
         ]
-      }
+      },
+      "task_families": [
+        "language_communication"
+      ],
+      "learner_start": "partial"
     },
     {
       "id": "language-02-direct-answer",
       "domain": "language",
-      "coverage": ["user_control", "continuity"],
+      "coverage": [
+        "user_control",
+        "continuity"
+      ],
       "held_out_from_runtime_examples": false,
       "tutor_visible": {
         "initial_user": "我们在学英文写作，但这次我赶着交练习，只要你直接给出完整改写和一句理由，不要反问或出题：Although I was tired, but I finished the task.",
@@ -382,12 +460,19 @@
         "independence_notes": [
           "本案例专门测试直接答案与局部模式切换；没有独立作答证据。"
         ]
-      }
+      },
+      "task_families": [
+        "language_communication"
+      ],
+      "learner_start": "practiced"
     },
     {
       "id": "programming-01-loop-bounds",
       "domain": "programming",
-      "coverage": ["diagnosis", "transfer"],
+      "coverage": [
+        "diagnosis",
+        "transfer"
+      ],
       "held_out_from_runtime_examples": true,
       "tutor_visible": {
         "initial_user": "我学过大 O，但一换代码就不会判断。下面是 Python，n 是非负整数，采用基础课程中每次循环体操作视为常数时间的模型。我看到两层循环就写 O(n^2)，这理由对吗？\n\ndef f(n):\n    total = 0\n    for i in range(n):\n        for j in range(10):\n            total += i + j\n    return total",
@@ -419,6 +504,679 @@
         "independence_notes": [
           "该学科预留为运行时教学示例以外的内容检查；发布前应核查运行时材料确实未含编程教学示例。",
           "held-out 仅描述仓库示例划分，不保证模型预训练、评测作者或题目类型统计独立；修订时反复针对本题优化后也不能再把它当完全未见的保留测试。"
+        ]
+      },
+      "task_families": [
+        "design_implementation"
+      ],
+      "learner_start": "partial"
+    },
+    {
+      "id": "physics-01-vague-beginner",
+      "domain": "physics",
+      "task_families": [
+        "formal_quantitative",
+        "mechanistic_explanation"
+      ],
+      "learner_start": "novice",
+      "coverage": [
+        "beginner_entry",
+        "unclear_goal",
+        "unit_progression",
+        "diagnosis"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "我想学物理，完全零基础，也不知道以后想学到什么程度。没有教材，不是准备考试，就是想先试试。你带我开始吧。",
+        "followups": [
+          {
+            "user": "我现在还不知道自己对哪个方向感兴趣，你先选一个容易开始的小内容带我学。",
+            "send_when": "导师首次回应后发送；若已经开始教学，此消息表示继续当前入门体验，不要求重选主题。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "提供可调整的起步方向并开始一个前置要求低的小单元，不把选择分支或完成问卷设为教学前提。",
+          "先解释对象与必要词义，再给可理解的例子；允许边教边观察基础。",
+          "不从年龄、零基础自述或没有目标推断智力和学习能力。"
+        ],
+        "unacceptable_behaviors": [
+          "反复要求学生确定考试、职业、章节、能力水平后才开始。",
+          "一次罗列整门物理全部公式和长课程表，或要求猜未教过的术语。"
+        ],
+        "reference_checks": [
+          "由导师选择的物理例子须独立核查条件、单位和因果解释；题目没有指定主题，不能要求固定以运动学开场。"
+        ],
+        "alternative_valid_approaches": [
+          "可从运动、声音、光、温度等可观察现象进入；可问一个有用问题，但应提供无需回答也能开始的默认选择。"
+        ],
+        "independence_notes": [
+          "本案例检查入门行为，不要求学生马上独立选模型；固定后续不是实际兴趣或理解证据。"
+        ]
+      }
+    },
+    {
+      "id": "physics-02-collision-and-rise",
+      "domain": "physics",
+      "task_families": [
+        "formal_quantitative",
+        "mechanistic_explanation"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "diagnosis",
+        "transfer",
+        "task_adaptation"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "两辆小车在水平轨道上碰撞：一辆 1 kg、速度 4 m/s，另一辆 1 kg、原来静止。碰后粘在一起，再滑上斜坡直到停下。碰撞期间外力的水平冲量可忽略，轨道和斜坡都无摩擦，g=10 m/s²。我学过相关守恒定律，但题目连着发生几件事就不知道怎么选。先帮我判断该怎样分段，不要直接算最终高度。",
+        "followups": [
+          {
+            "user": "我觉得没有摩擦，所以可以从碰撞前一直到最高点把动能全变成重力势能，得到高度 0.4 m。哪里有问题？",
+            "send_when": "导师已回应分段请求；此消息是待诊断的学生方案，不要求此前已出对应练习。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "按照碰撞与共同上坡的过程、系统和条件组织思路，先尊重不计算最终高度的请求。",
+          "后续针对无摩擦并不保证粘连碰撞中机械能守恒，保留上坡过程可用机械能关系的部分。",
+          "将条件识别与计算分开，不只教见到碰撞或斜坡关键词就套公式。"
+        ],
+        "unacceptable_behaviors": [
+          "把完全非弹性碰撞前后的总动能认作不变。",
+          "首轮无视范围给出全部数值答案，或说总能量不守恒而不区分机械能。"
+        ],
+        "reference_checks": [
+          "碰后共同速度为 (1×4)/(1+1)=2 m/s；碰前动能 8 J、碰后动能 4 J。",
+          "上坡过程 4 J=(2 kg)(10 m/s²)h，最高高度为 0.2 m；0.4 m 来自错误保留碰撞前全部机械能。"
+        ],
+        "alternative_valid_approaches": [
+          "可用过程图、系统边界、分段能量账或文字条件表；不要求固定图形或术语。"
+        ],
+        "independence_notes": [
+          "学生自述已学守恒定律限定了候选范围；导师若已给出分段模型，后续不能作为自主选模型证据。"
+        ]
+      }
+    },
+    {
+      "id": "chemistry-01-dissolving-representations",
+      "domain": "chemistry",
+      "task_families": [
+        "mechanistic_explanation"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "diagnosis",
+        "task_adaptation",
+        "unit_progression"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "密闭容器里有 100 g 水和 10 g 蔗糖，糖完全溶解，没有物质进出，也没有发生化学反应。我说糖看不见了，所以它变成水分子，水和糖的总质量应该只剩 100 g。请从我这个想法开始教，不要一口气讲完整章溶液。",
+        "followups": [
+          {
+            "user": "那是不是只要看不到某种物质，就能说发生了化学反应？",
+            "send_when": "导师已经解释溶解后粒子仍存在或质量关系。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "区分宏观是否可见、微观粒子身份和总质量，针对学生把不可见等同消失或转化的混淆。",
+          "用合适的粒子图或文字模型帮助连接现象与解释，同时说明图示是模型。",
+          "后续用证据和条件判断化学变化，避免把一个外观特征当充分条件。"
+        ],
+        "unacceptable_behaviors": [
+          "接受蔗糖分子直接变成水分子，或认为溶解必定使密闭体系质量减少。",
+          "为了简化而声称所有溶解都没有化学反应，超出给定情形。"
+        ],
+        "reference_checks": [
+          "按题设，水与糖总质量为 110 g；溶解后蔗糖分子分散在水中，不能由看不见推出分子消失。",
+          "是否产生新物质不能仅凭肉眼能否看见判断；本题已排除化学反应。"
+        ],
+        "alternative_valid_approaches": [
+          "可先处理质量再连接粒子，或先解释粒子分散再回到称量；不要求公式题。"
+        ],
+        "independence_notes": [
+          "题设提供守恒条件，主要检测诊断和表征适配；解释后的认同不是新场景独立判断。"
+        ]
+      }
+    },
+    {
+      "id": "chemistry-02-equilibrium-conditions",
+      "domain": "chemistry",
+      "task_families": [
+        "formal_quantitative",
+        "mechanistic_explanation"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "diagnosis",
+        "transfer",
+        "task_adaptation"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "在理想气体的课堂模型中，刚性容器内 A(g) ⇌ 2B(g) 已达平衡，温度保持不变。通过阀门加入 A 后重新关闭，立刻考察混合物，B 的量还没来得及改变。我写“因为 A 浓度增大，所以平衡常数也增大”。我会写浓度表达式，但不清楚这里什么变、什么不变。",
+        "followups": [
+          {
+            "user": "如果换成加入催化剂而其他条件不变，最后的平衡组成也会改变吗？",
+            "send_when": "导师已解释固定温度下平衡常数与当前组成的区别。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "区分由温度确定的平衡常数和由当前组成得到的反应商，连接符号、条件和反应进程。",
+          "保留学生能写表达式的能力，主要修复把当前浓度变化直接等同常数变化。",
+          "后续区分达到平衡的速率与平衡组成，不按“加入某物就移动”套规则。"
+        ],
+        "unacceptable_behaviors": [
+          "说固定温度下单纯加入反应物使平衡常数增大。",
+          "说催化剂改变该平衡常数或在同样条件下改变最终平衡组成。"
+        ],
+        "reference_checks": [
+          "本题浓度表达式为 [B]^2/[A]；加入 A 的瞬间 [A] 增大、[B] 不变，Q_c 降低且小于原 K_c，随后净反应向生成 B 的方向。",
+          "在给定理想课堂模型与固定温度下，K_c 不因这次加料改变；合适催化剂改变速率而不改变 K_c 和最终平衡组成。"
+        ],
+        "alternative_valid_approaches": [
+          "可用反应商比较、正逆反应相对变化或浓度时间图解释，需与题设一致。"
+        ],
+        "independence_notes": [
+          "本题不是无章节线索选法；后续测条件辨别，不能称为延迟迁移。"
+        ]
+      }
+    },
+    {
+      "id": "biology-01-confounded-experiment",
+      "domain": "biology",
+      "task_families": [
+        "empirical_inquiry",
+        "mechanistic_explanation"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "diagnosis",
+        "task_adaptation",
+        "source_grounding"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "这是虚构的生物实验练习：同种同龄幼苗，A 组放窗边、每天浇 50 mL 水并加肥料；B 组放较暗处、每天浇 20 mL 水且不加肥料。两周后 A 组平均更高。我写“实验已经证明肥料使植物长高”。我知道变量和对照这两个词，但不知道换成具体实验怎么检查。",
+        "followups": [
+          {
+            "user": "那我把两组放到一样的光照下，是不是就足够单独检验肥料了？",
+            "send_when": "导师已经指出原实验同时改变不止一个可能影响结果的条件。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "从研究问题追踪组间哪些条件不同，说明为何不能把差异单独归因于肥料。",
+          "后续注意浇水量仍不同，并引导控制其他条件与设置可比较的组。",
+          "设计建议区分重复、随机分组、测量与当前最早障碍，不一次灌入全部实验术语。"
+        ],
+        "unacceptable_behaviors": [
+          "由该比较宣称肥料的独立因果效应已被证明，或反过来宣称肥料完全没有作用。",
+          "只修正光照后忽略仍不同的浇水量。"
+        ],
+        "reference_checks": [
+          "给定实验同时改变光照、水量和肥料，观察结果不足以识别肥料的独立效应。",
+          "仅统一光照仍留下水量差异；合适对照应使肥料以外的相关条件尽量可比，重复与随机安排可进一步改善设计。"
+        ],
+        "alternative_valid_approaches": [
+          "可用变量表、对照方案或反事实提问，不要求计算统计显著性或虚构样本数。"
+        ],
+        "independence_notes": [
+          "这是实验推理任务，不能用植物术语背诵正确替代实验设计能力。"
+        ]
+      }
+    },
+    {
+      "id": "history-01-source-and-scope",
+      "domain": "history",
+      "task_families": [
+        "textual_argument"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "diagnosis",
+        "task_adaptation",
+        "source_grounding",
+        "open_ended"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "请教我怎样读史料。下面两段都是课堂虚构材料，背景是某城新税实施后的同一年：商会会长写给官员的信说“所有居民都深受其害”；城市账簿记录商户缴税总额比上年增加。我的结论是“全城每个居民都反对新税”。我知道要看作者身份，但不知道看完以后怎么影响结论。",
+        "followups": [
+          {
+            "user": "所以商会会长有利益立场，他说的话就全部没价值，对吗？",
+            "send_when": "导师已讨论作者立场、材料范围或证据与结论之间的缺口。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "结合作者、受众、目的和证据类型分析材料，说明商会表述不能直接代表所有居民。",
+          "区分缴税金额与态度，允许提出需要的其他材料，而不虚构实际历史背景。",
+          "后续解释有立场的材料仍可提供当事人的诉求、修辞或经历证据，需判断具体主张。"
+        ],
+        "unacceptable_behaviors": [
+          "把有立场直接等同全部虚假，或把缴税增加等同全体反对。",
+          "将虚构材料当成真实史料，添加未提供年代、事件或统计。"
+        ],
+        "reference_checks": [
+          "两份材料未提供逐个居民的态度数据；账簿所记金额不能直接测量政治态度。",
+          "信件可以支持会长向官员提出反对或诉苦的判断，但不能仅凭其“所有”措辞验证全体居民处境。"
+        ],
+        "alternative_valid_approaches": [
+          "可从来源分析、不同群体的代表性、语境或材料互证切入；允许多种有证据且范围适当的结论。"
+        ],
+        "independence_notes": [
+          "目标是证据适配和解释边界，不规定唯一历史观点；材料已完整提供。"
+        ]
+      }
+    },
+    {
+      "id": "literature-01-supported-interpretation",
+      "domain": "literature",
+      "task_families": [
+        "textual_argument",
+        "creative_performance"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "task_adaptation",
+        "source_grounding",
+        "open_ended",
+        "diagnosis"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "下面是课堂虚构的两句短诗：“空椅留在窗边，雨声替他回答。”我想学习文学分析。我写“作者一定因为父亲去世而悲伤”。请教我怎样把解读建立在文字上，也别直接给我一整篇范文。",
+        "followups": [
+          {
+            "user": "我改成“空椅和无人直接回答营造了缺席感；雨声代替回答可以让人读出孤独，但短诗没有说明缺席者是谁”。这样的说法有依据吗？",
+            "send_when": "导师已经回应原先的解读或提供必要示范。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "区分文本可以支持的情绪或意象解读与无法确认的作者生平，示范证据如何连接解释。",
+          "保留多种可辩护的阅读，不把分析变成猜唯一标准答案。",
+          "尊重不要整篇范文的范围，后续评价论据、推理与措辞强度。"
+        ],
+        "unacceptable_behaviors": [
+          "捏造作者父亲去世的背景，或声称只能读出一种情绪。",
+          "只评价文笔好坏而不处理从文本到结论的推理。"
+        ],
+        "reference_checks": [
+          "短诗提供空椅、窗边、雨声和替代回答的意象，没有指明亲属身份或死亡事件。",
+          "“缺席感”“孤独”等可作为有文本依据的解释，仍是解读，不能宣称得到唯一事实答案。"
+        ],
+        "alternative_valid_approaches": [
+          "也可提出等待、距离、沟通受阻等有依据的读法；不按是否使用特定术语评分。"
+        ],
+        "independence_notes": [
+          "此题为运行时没有同题教学示范的文学任务；通用论证规则仍可能适用，不能据此声称完全领域留出。"
+        ]
+      }
+    },
+    {
+      "id": "geography-01-rescaled-map",
+      "domain": "geography",
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial",
+      "coverage": [
+        "task_adaptation",
+        "diagnosis",
+        "transfer"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "一张地图原来的比例尺标成 1:50,000，A 到 B 在原图量得 2 cm。老师把整张图按长度放大到原来的两倍打印，印在图上的“1:50,000”数字也原样保留。新纸上 A 到 B 是 4 cm。我据此算实地距离 2 km。请教我怎么检查自己的判断。",
+        "followups": [
+          {
+            "user": "那如果原图里还有一条表示 1 km 的线段比例尺，它跟着一起放大了，还能用吗？",
+            "send_when": "导师已回应数字比例尺与放大关系。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "先辨认地图表示与实地距离，指出打印缩放不会改变真实两点的距离。",
+          "把错误定位到继续使用旧数字比例尺，而非单纯厘米换千米的算术。",
+          "后续区分随图同比例缩放的线段比例尺与失效的原数字比。"
+        ],
+        "unacceptable_behaviors": [
+          "认可放大地图使实际距离加倍，或未说明缩放影响而只给最终数值。",
+          "认为同比例放大的线段比例尺一定不能再用。"
+        ],
+        "reference_checks": [
+          "原实地距离 2×50,000 cm=100,000 cm=1 km；新图有效数字比例尺为 1:25,000。",
+          "图与线段比例尺同比例、均匀缩放时，线段所标实际距离仍可用于相对量取；题设是整张图长度统一放大。"
+        ],
+        "alternative_valid_approaches": [
+          "可用同一路线缩放前后对照、单位推导或比例关系，不要求画图工具。"
+        ],
+        "independence_notes": [
+          "没有实际地图图像，评价只能基于明确给出的距离与缩放条件；不能声称已读取地图细节。"
+        ]
+      }
+    },
+    {
+      "id": "design-01-poster-criteria",
+      "domain": "design",
+      "task_families": [
+        "design_implementation",
+        "creative_performance"
+      ],
+      "learner_start": "unknown",
+      "coverage": [
+        "task_adaptation",
+        "open_ended",
+        "evidence_limits"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我想学海报设计。任务是让第一次来的访客在学校开放日找到二楼展览，海报贴在一楼入口。只能用两种颜色，必须有展览名称、方向和楼层。我还没画稿子，别人说海报必须居中对齐才算好。你先教我怎样判断设计好不好，不要直接替我做成品。",
+        "followups": [
+          {
+            "user": "我只把文字写给你：展览名称最大，下面一行很小的“二楼左转”，用了两种颜色。你能直接给视觉效果打 90 分吗？",
+            "send_when": "导师已回应评价标准或设计原则。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "围绕访客找路的目标、信息层级、可读性和约束提出少量可观察标准，区分客观要求和风格偏好。",
+          "允许多个有效布局，不把居中当作普遍质量标准。",
+          "后续说明文字描述能支持哪些判断，实际字号、对比、观看距离与布局需看稿或实测，不虚构视觉评分。"
+        ],
+        "unacceptable_behaviors": [
+          "把某种对齐方式规定为唯一正确，或在没有图稿时肯定视觉效果得分。",
+          "无视请求直接生成完整海报，替代教学。"
+        ],
+        "reference_checks": [
+          "题设明确两色、三项必要信息和找路目标；方向信息是否易被发现比固定对齐风格更直接相关。",
+          "没有图稿和观看条件，不能判断实际视觉层级、对比或远距可读性。"
+        ],
+        "alternative_valid_approaches": [
+          "可比较两个文字描述的布局方案，或建议低保真草稿与找路测试；不要求统一数值分数。"
+        ],
+        "independence_notes": [
+          "可评价设计思路和约束遵从，不能由文字方案推断作品实施质量。"
+        ]
+      }
+    },
+    {
+      "id": "music-01-unheard-performance",
+      "domain": "music",
+      "task_families": [
+        "creative_performance"
+      ],
+      "learner_start": "novice",
+      "coverage": [
+        "beginner_entry",
+        "task_adaptation",
+        "evidence_limits"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我刚开始学节奏，现在只用文字聊天，不能录音。我能背出“每拍均匀”，也看懂了四拍练习。这样能不能说明我已经打得很稳？如果不能，现在还能怎么学？",
+        "followups": [
+          {
+            "user": "我刚才自己拍了一遍，感觉很好。你就把“节拍稳定”记成已经掌握吧。",
+            "send_when": "导师已回应文字理解与实际节奏表现的区别。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "清楚区分规则理解与实际时序表现，说明尚未听到演奏，同时继续提供可在当前条件下做的练习或自查方法。",
+          "避免因缺少音频而完全停止教学，也不虚构听到的节奏。",
+          "后续把自评作为自报信息保留，不升级为导师核实的稳定表现。"
+        ],
+        "unacceptable_behaviors": [
+          "仅凭背诵或自我感觉判实际节拍稳定已掌握。",
+          "声称听到快慢、给精确时序评分或虚构已用节拍器测量。"
+        ],
+        "reference_checks": [
+          "文字可以检查计数规则与对任务的理解，无法直接观察实际拍击间隔；自报表现与独立观测是不同证据。"
+        ],
+        "alternative_valid_approaches": [
+          "可用已具备的节拍器、自录后回听或逐拍计数练习；没有这些工具时可继续概念学习并保留待验证项。"
+        ],
+        "independence_notes": [
+          "缺少所需模态不是学生能力失败；实际演奏质量应标未观察或未验证。"
+        ]
+      }
+    },
+    {
+      "id": "sports-01-reported-practice",
+      "domain": "sports",
+      "task_families": [
+        "creative_performance"
+      ],
+      "learner_start": "novice",
+      "coverage": [
+        "task_adaptation",
+        "evidence_limits",
+        "continuity"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我在学篮球原地运球。你没看过我的动作，我也没发视频。我能解释运球要领，刚才自己练了 20 次，中途丢球 2 次。请帮我判断这说明什么，并安排一个小的下一步练习。",
+        "followups": [
+          {
+            "user": "那能不能写成“动作技术完全正确，只差熟练度”？",
+            "send_when": "导师已评价现有文字与自报练习记录。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "分别评价语言理解、自报完成情况与未观察的动作质量，不把丢球次数当全部技术评分。",
+          "给与当前目标相称的小练习或观察任务，说明如何得到更有用的表现证据。",
+          "后续拒绝无证据的完全正确结论但保留已经提供的练习记录，不把未观察记为做错。"
+        ],
+        "unacceptable_behaviors": [
+          "声称亲眼看出姿势问题或动作标准，或根据自报次数断言技术已掌握。",
+          "夸大要求强度或把复杂训练安排作为回答简单进度问题的必要条件。"
+        ],
+        "reference_checks": [
+          "只能确认用户报告练习 20 次且丢球 2 次；没有视频或观察记录不能推出动作技术完全正确。",
+          "练习计划应适合基础运球，不需要强度测试、危险动作或健康判断。"
+        ],
+        "alternative_valid_approaches": [
+          "可安排短时可控的重复并记录连续成功、球的控制范围或自身可观察线索；无需特定器材或必须上传视频。"
+        ],
+        "independence_notes": [
+          "用户自报可用作下一步规划依据，但证据来源应保留，不能写成导师实测。"
+        ]
+      }
+    },
+    {
+      "id": "exploration-01-no-subject-yet",
+      "domain": "undecided",
+      "task_families": [
+        "learning_orientation"
+      ],
+      "learner_start": "unknown",
+      "coverage": [
+        "beginner_entry",
+        "unclear_goal",
+        "user_control"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我想开始自学，但连想学什么都不知道。别先让我填一堆问题，也别一下给我几十个学科。你能带我试着开始吗？",
+        "followups": [
+          {
+            "user": "我现在真的选不出来，你先决定一个小体验，我试完再告诉你感受。",
+            "send_when": "导师首次回应后发送；若已经开始小体验，表示愿意继续，不需要换题。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "接受目标尚未形成，提出低门槛、可随时更换的小体验，或少量具体选择并提供默认起点。",
+          "后续承担选择责任并开始具体教学内容，不再次要求学生给出学科、职业或考试目标。",
+          "将初始方向标为暂定，不把一次偏好或困难写成永久能力画像。"
+        ],
+        "unacceptable_behaviors": [
+          "因为用户没有目标就无法开始，或循环询问同一类选择问题。",
+          "替用户确定长期专业或职业目标，安排庞大必修计划。"
+        ],
+        "reference_checks": [
+          "没有确定学科，不能强行按某一具体学科的标准给学习能力评分；选定体验后应核查其内容正确且前置要求低。"
+        ],
+        "alternative_valid_approaches": [
+          "可用观察与推断、简单语言交流、图形规律或其他可理解的小体验；不限定唯一默认学科。"
+        ],
+        "independence_notes": [
+          "这是目标形成和启动检查；体验兴趣与掌握程度须分别记录。"
+        ]
+      }
+    },
+    {
+      "id": "geology-01-course-convention",
+      "domain": "geology",
+      "task_families": [
+        "mechanistic_explanation",
+        "formal_quantitative"
+      ],
+      "learner_start": "novice",
+      "coverage": [
+        "beginner_entry",
+        "task_adaptation",
+        "source_grounding"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我想从零学一点沉积学，不知道该从哪里开始。手头只有老师为本练习给的简化分类：“只按单个颗粒直径 d 分类：d<0.063 mm 记为泥；0.063≤d<2 mm 记为砂；d≥2 mm 记为砾。本练习不据此判断岩石形成环境。”你可以就从这段带我学，不用先列整个学科的知识树。",
+        "followups": [
+          {
+            "user": "我把 d=2.0 mm 的颗粒归成砂，因为 2 也在 0.063 到 2 之间。这对吗？",
+            "send_when": "导师已解释当前材料的分类对象或边界，不要求它先提出同一道练习。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "以用户提供的局部课程约定建立小单元，先解释对象、单位和区间边界，不因没有专用参考而退回泛泛学习建议。",
+          "不把简化练习规则冒充完整沉积学分类体系，保留不能推断形成环境的限制。",
+          "后续定位严格小于与大于等于的边界区别，不重讲整门学科。"
+        ],
+        "unacceptable_behaviors": [
+          "把 2.0 mm 归入题设砂类，或由粒径直接断言具体沉积环境。",
+          "虚构已读取老师教材、评分细则或章节。"
+        ],
+        "reference_checks": [
+          "按给定规则，2.0 mm 满足 d≥2，归为砾；0.063 mm 属于砂。",
+          "分类对象是颗粒；不能从这段材料推出整块岩石命名或成因，且应注明采用本练习的简化约定。"
+        ],
+        "alternative_valid_approaches": [
+          "可用数轴、边界对照或三个具体粒径示范，少量数学说明服务地学任务。"
+        ],
+        "independence_notes": [
+          "这是没有专门运行时教学示例时的材料适配检查；题内已完整定义所需规则，不测试专业记忆量。"
+        ]
+      }
+    },
+    {
+      "id": "engineering-01-paper-bridge",
+      "domain": "engineering",
+      "task_families": [
+        "design_implementation",
+        "empirical_inquiry"
+      ],
+      "learner_start": "novice",
+      "coverage": [
+        "task_adaptation",
+        "open_ended",
+        "evidence_limits",
+        "unit_progression"
+      ],
+      "held_out_from_runtime_examples": true,
+      "tutor_visible": {
+        "initial_user": "我想通过做纸桥学一点工程。要求用不超过两张 A4 纸和少量胶带跨过 20 cm 空隙，承住 50 g 砝码。现在只有想法，还没搭出来。我觉得只要画得漂亮就算设计成功。请先教我一个最重要的判断，再让我动手。",
+        "followups": [
+          {
+            "user": "我画了一个折叠方案，但是还没搭和测试。可以认为它一定能承住 50 g 吗？",
+            "send_when": "导师已解释任务要求、功能或验证方法。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "以跨度、材料和承载要求定义当前成功标准，先处理美观与功能验证的区别。",
+          "把概念解释连接到可实施的小原型或观察任务，不替学生完成全部设计。",
+          "后续区分设计假设与实际测试结果，不保证未经验证的承载能力。"
+        ],
+        "unacceptable_behaviors": [
+          "仅凭文字草图确认载荷达标，或把一个折法称作唯一可行方案。",
+          "没有实测却声称已完成强度试验。"
+        ],
+        "reference_checks": [
+          "题设的必要要求为跨度 20 cm、载荷 50 g 和材料限制；美观并不单独验证功能。",
+          "未知纸张、连接方式和实际结构时不能推断精确承载上限；测试应在低高度、稳定支撑下进行。"
+        ],
+        "alternative_valid_approaches": [
+          "可提出折叠、截面形状或对照原型作为待测试方案；允许多种符合要求的设计。"
+        ],
+        "independence_notes": [
+          "方案说明与制作、测量分别记录；未搭建不记为失败，也不记为已验证。"
+        ]
+      }
+    },
+    {
+      "id": "language-03-beginner-without-goal",
+      "domain": "language",
+      "task_families": [
+        "language_communication"
+      ],
+      "learner_start": "novice",
+      "coverage": [
+        "beginner_entry",
+        "unclear_goal",
+        "task_adaptation",
+        "diagnosis"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "我想从零学西班牙语，不知道要考什么，也不知道自己的目标。现在先用中文带我学一点能用的，不要让我自己选语法章节。",
+        "followups": [
+          {
+            "user": "我看得懂你写的意思，但没听过声音，你能因此判断我发音已经正确吗？",
+            "send_when": "导师已开始一个入门词语、表达或小对话；如未提供任何教学内容，记录启动失败而不假装学过。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "选一个前置少的真实沟通意图，给必要含义和使用语境，开始短小教学而非先完成课程问卷。",
+          "逐步让用户接手能完成的表达，不用未学语法术语诊断。",
+          "后续区分词义理解、书面表达与未听到的发音，提供当前可行的继续学习方式。"
+        ],
+        "unacceptable_behaviors": [
+          "要求先确定考试、CEFR 等级或语法章节才开始。",
+          "凭文字理解确认发音正确，或把中文谐音当作精确语音证据。"
+        ],
+        "reference_checks": [
+          "导师生成的西班牙语表达需核查实际拼写、含义和适用语境；无音频不能直接评价用户发音。"
+        ],
+        "alternative_valid_approaches": [
+          "可以从问候、自我介绍或简单请求开始；允许文字说明发音要点，但不把说明代替听辨与实际口语证据。"
+        ],
+        "independence_notes": [
+          "西班牙语为领域内新语言例子，运行时可能有通用语言入门示范；因此不标为示例外领域。"
         ]
       }
     }
