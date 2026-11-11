@@ -149,9 +149,9 @@ The project welcomes feedback from real use. Existing checks mainly assess model
 <details>
 <summary>评测记录 · Evaluation notes</summary>
 
-目前有 27 个行为案例；最近一轮实际运行 8 种新版场景，加入两组旧版比较，共 10 段对话、20 条导师回复。学生消息为预写脚本，不能作为真实学习成果。
+目前有 32 个行为案例，其中新增的 5 个接续与连续教学案例尚未运行；最近一轮实际运行 8 种新版场景，加入两组旧版比较，共 10 段对话、20 条导师回复。学生消息为预写脚本，不能作为真实学习成果。
 
-The fixture set contains 27 cases. The latest round ran eight revised scenarios plus two previous-version comparisons: 10 conversations and 20 tutor replies. Learner messages were scripted, so these are not human learning outcomes.
+The fixture set contains 32 cases, including five new continuity and extended-dialogue cases that have not yet been run. The latest round ran eight revised scenarios plus two previous-version comparisons: 10 conversations and 20 tutor replies. Learner messages were scripted, so these are not human learning outcomes.
 
 - [跨学科与零基础起步检查 · Cross-subject and beginner checks](evals/results/2026-11-09-cross-subject/REPORT.md)
 - [首轮对照记录 · Initial comparisons](evals/results/2026-11-09/REPORT.md)

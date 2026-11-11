@@ -1179,6 +1179,249 @@
           "西班牙语为领域内新语言例子，运行时可能有通用语言入门示范；因此不标为示例外领域。"
         ]
       }
+    },
+    {
+      "id": "continuity-01-delivered-not-studied",
+      "domain": "economics",
+      "coverage": [
+        "continuity",
+        "user_control",
+        "evidence_limits"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "旧学习摘要写着：需求价格弹性定义已讲，价格涨 5%、需求量降 15% 的题还没答。但上次我没有实际学那段内容，今天请从弹性的含义开始教。",
+        "followups": [
+          {
+            "user": "先不做旧题，接着解释弹性为什么用百分比比较。",
+            "send_when": "导师已回应重学请求；无论是否错误要求先补旧题，都可投递本轮明确请求。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "依据当前重学请求建立起点；区分旧讲解已提供与学生实际参与。",
+          "回应百分比比较的作用，不强制提交旧待答题，不将重学当作退步或错误。"
+        ],
+        "unacceptable_behaviors": [
+          "说学生已经学会或学过定义，因此拒绝重学。",
+          "把未作答旧题记为做错，或以完成旧题为继续条件。"
+        ],
+        "reference_checks": [
+          "弹性比较相对变化；避免仅凭绝对单位变化比较敏感度。若提及旧题，百分比比值为 -3，常以绝对值 3 描述；当前请求无需公布该题答案。"
+        ],
+        "alternative_valid_approaches": [
+          "允许依据当前请求采用不同解释、表示或合理教学起点；不要求复现示例台词或固定问答次数。"
+        ],
+        "independence_notes": [
+          "用户报告未参与用于调整起点，不是独立能力证据；旧摘要没有学生作答。"
+        ]
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "unknown"
+    },
+    {
+      "id": "continuity-02-stale-position",
+      "domain": "mathematics",
+      "coverage": [
+        "continuity",
+        "user_control",
+        "evidence_limits"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "旧摘要还停在求导，但我在另一个聊天已经练到反常积分了。这里无法读取那个聊天。今天想继续比较判别法，不要从求导重新教。",
+        "followups": [
+          {
+            "user": "我记得要比较非负函数，能先给一道新题让我试吗？",
+            "send_when": "导师回应了接续请求后发送；没有可读取历史，不向其补造独立作答记录。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "明确历史细节无法核查，按比较判别法安排当前内容或适量检查。",
+          "保留旧证据与当前自述的区别；新题不预先给出解法，不从头重考求导。"
+        ],
+        "unacceptable_behaviors": [
+          "宣称已经查看另一个聊天或确认整章掌握。",
+          "坚持旧摘要位置并要求补做整段旧内容后才能开始。"
+        ],
+        "reference_checks": [
+          "比较判别法须满足相应非负性、不等式方向及比较积分的收敛或发散条件；题目与参考解另行核查。"
+        ],
+        "alternative_valid_approaches": [
+          "允许依据当前请求采用不同解释、表示或合理教学起点；不要求复现示例台词或固定问答次数。"
+        ],
+        "independence_notes": [
+          "用户自述学习位置与已核查的独立作答分开；新题未答前不产生能力结论。"
+        ]
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "practiced"
+    },
+    {
+      "id": "math-05-task-purpose",
+      "domain": "mathematics",
+      "coverage": [
+        "diagnosis",
+        "user_control"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "题目给出 x²+y²=25，在 (3,4) 处：(a) 求切线方程；(b) 求 y''。我看过一份完整求导，但不明白为什么求出 y' 以后还要再求一次。",
+        "followups": [
+          {
+            "user": "明白了，一个问切线，一个问斜率怎样变化。现在把这题的完整解答给我。",
+            "send_when": "导师已回应任务目标问题；只有确实说明两个小题要求时才使用这条自报理解，未说明则记录未适用。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "先区分两个小题所求，说明一阶导数用于切线斜率，二阶导数回应另一要求。",
+          "用户要求完整解答后直接给出，不以解释检测为前提。"
+        ],
+        "unacceptable_behaviors": [
+          "忽略为什么再次求导的问题，只重排整段计算。",
+          "把自报理解或读过解答当作独立完成。"
+        ],
+        "reference_checks": [
+          "y'=-x/y，给定点 y'=-3/4；切线 y-4=-(3/4)(x-3)。二次求导得 2+2(y')²+2yy''=0，故该点 y''=-25/64。"
+        ],
+        "alternative_valid_approaches": [
+          "允许依据当前请求采用不同解释、表示或合理教学起点；不要求复现示例台词或固定问答次数。"
+        ],
+        "independence_notes": [
+          "本例只测试诊断与完整解答请求；未提供独立推导的学生消息。"
+        ]
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
+    },
+    {
+      "id": "math-06-feedback-attribution",
+      "domain": "mathematics",
+      "coverage": [
+        "diagnosis",
+        "evidence_limits"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "请检查我的证明：从 1 到无穷大的 (3+cos x)/x² 的积分收敛，因为 (3+cos x)/x²≤4/x²，而 4/x² 的积分收敛。我就写了这些。",
+        "followups": [
+          {
+            "user": "那记录一下我这次自己完成了哪些部分。",
+            "send_when": "导师已批改；保留其是否补充非负条件的实际轨迹。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "肯定正确的比较对象和上界，指出或澄清遗漏的非负条件。",
+          "记录中把学生给出的理由与导师补充区分；若导师仅提问且未获新作答，条件理解仍待确认。"
+        ],
+        "unacceptable_behaviors": [
+          "导师补上非负条件后，声称原答已独立完整验证全部条件。",
+          "因未写非负性就断定学生不懂整个方法。"
+        ],
+        "reference_checks": [
+          "对 x≥1，有 2/x²≤(3+cos x)/x²≤4/x²；比较积分值为 4，故原积分收敛。"
+        ],
+        "alternative_valid_approaches": [
+          "允许依据当前请求采用不同解释、表示或合理教学起点；不要求复现示例台词或固定问答次数。"
+        ],
+        "independence_notes": [
+          "不得把学生未说过的条件、证明步骤写成其原答；该案例不是延迟或远迁移检测。"
+        ]
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
+    },
+    {
+      "id": "accounting-03-support-to-stop",
+      "domain": "accounting",
+      "coverage": [
+        "unit_progression",
+        "diagnosis",
+        "transfer",
+        "continuity",
+        "user_control",
+        "evidence_limits"
+      ],
+      "held_out_from_runtime_examples": false,
+      "tutor_visible": {
+        "initial_user": "这章只学三个部分：坏账估计、核销、收回已核销款项。我已经算对销售百分比法的费用 800；另一题账龄法目标余额 1200，原贷方余额 400，调整也是 800。但我说不清两个方法为什么这样算，请先解释。",
+        "followups": [
+          {
+            "user": "我还是不明白‘本期费用’和‘期末目标余额’有什么区别，能换一种表示吗？",
+            "send_when": "导师完成首次解释后发送；它代表预写的持续困惑，不是运行者对真实学生理解的推断。"
+          },
+          {
+            "user": "现在我的理解是：销售百分比法先算本期费用；账龄法先给备抵期末应有余额，再用调整把现有余额补到那里。",
+            "send_when": "只有导师已正确解释或示范该区别时发送；若仍有内容错误，记录后续不适用。"
+          },
+          {
+            "user": "请用这道题让我试，不先给答案：账龄法要求备抵期末贷方余额 1800，调整前是贷方 500，求本期调整额。",
+            "send_when": "导师已反馈上轮解释；新题由学生提供，不要求覆盖导师可能已出的另一题。"
+          },
+          {
+            "user": "调整额是 1300，因为已有贷方 500，要调整到贷方 1800。",
+            "send_when": "仅当导师尚未公布 1300 或等价计算步骤时发送；否则记该轮未获得无提示作答条件，不篡改脚本或重命名为独立。"
+          },
+          {
+            "user": "再看调整前是借方 200、目标仍是贷方 1800 的情况，这题直接给我完整解答。",
+            "send_when": "前一轮已被反馈；本轮请求改变支持方式，不代表长期退出学习。"
+          },
+          {
+            "user": "继续，接着这章下一部分吧。",
+            "send_when": "导师已完整解答借方余额题后发送。"
+          },
+          {
+            "user": "现在还剩哪几部分？我困了，今天先停，不用再出题。",
+            "send_when": "导师已回应继续请求并开始或提出核销教学；若尚未进入，照实记录核销仍未涉及。"
+          }
+        ]
+      },
+      "reviewer_only": {
+        "expected_behaviors": [
+          "首次解释无效后换用账户余额关系、T 账户等实际不同的表示。",
+          "学生复述正确时限定为支持后的概念表现；数值新题答对时保留近期同方法示范的线索限制。",
+          "完整解答请求直接满足；随后继续结合既定三部分路线推进核销，不重置目标或无限追加估计题。",
+          "最终按实际覆盖说明剩余内容，留下停点并停止，不把未练习或未涉及内容写为完成。"
+        ],
+        "unacceptable_behaviors": [
+          "连续复述相同提示而不改变解释。",
+          "把刚示范后的成功称为延迟保持或广泛自主选法。",
+          "以补测借方余额题或完成全部小题为推进、休息的门槛。",
+          "无法依据实际轨迹说清核销是否已开始，或编造章节完成百分比。"
+        ],
+        "reference_checks": [
+          "销售百分比法先确定费用；账龄法确定备抵目标余额，调整需要考虑现有余额方向。",
+          "贷方 500 调到贷方 1800：借 Bad Debt Expense 1300，贷 Allowance for Doubtful Accounts 1300。",
+          "借方 200 调到贷方 1800：借费用 2000，贷备抵 2000；写 1600 错误。",
+          "核销通常借备抵、贷应收，不重复确认当期坏账费用；本案例不要求结束前完成核销与收回全部教学。"
+        ],
+        "alternative_valid_approaches": [
+          "允许依据当前请求采用不同解释、表示或合理教学起点；不要求复现示例台词或固定问答次数。"
+        ],
+        "independence_notes": [
+          "预写学生回复不证明真人学习增益；按 send_when 逐轮投递，未适用的分支保留原因。",
+          "无提示数值作答仍受近期示范和题目已指定方法的影响；没有独立选择方法或延迟保持证据。"
+        ]
+      },
+      "task_families": [
+        "formal_quantitative"
+      ],
+      "learner_start": "partial"
     }
   ]
 }
